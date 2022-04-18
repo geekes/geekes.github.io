@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="小程序,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="极客教程" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="小程序配置文件一个小程序页面由四个文件组成，分别是：文件类型    必需    作用js    是    页面逻辑wxml    是    页面结构json    否    页面配置wxss    否    页面样式表  注意：为了方便开发者减少配置项，描述页面的四个文件必须具有相同的路径与文件名允许上传的文件在项目目录中，以下文件会经过编译，因此上传之后无法直接访问到：.js、app.json、">
+<meta name="keywords" content="小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序入门教程">
+<meta property="og:url" content="https://geekes.github.io/2019/10/15/小程序入门教程/index.html">
+<meta property="og:site_name" content="极客教程">
+<meta property="og:description" content="小程序配置文件一个小程序页面由四个文件组成，分别是：文件类型    必需    作用js    是    页面逻辑wxml    是    页面结构json    否    页面配置wxss    否    页面样式表  注意：为了方便开发者减少配置项，描述页面的四个文件必须具有相同的路径与文件名允许上传的文件在项目目录中，以下文件会经过编译，因此上传之后无法直接访问到：.js、app.json、">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-30T15:47:23.542Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序入门教程">
+<meta name="twitter:description" content="小程序配置文件一个小程序页面由四个文件组成，分别是：文件类型    必需    作用js    是    页面逻辑wxml    是    页面结构json    否    页面配置wxss    否    页面样式表  注意：为了方便开发者减少配置项，描述页面的四个文件必须具有相同的路径与文件名允许上传的文件在项目目录中，以下文件会经过编译，因此上传之后无法直接访问到：.js、app.json、">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://geekes.github.io/2019/10/15/小程序入门教程/">
+
+
+
+
+
+  <title>小程序入门教程 | 极客教程</title>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">极客教程</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">geekes's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+
+
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://geekes.github.io/2019/10/15/小程序入门教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yixuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极客教程">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">小程序入门教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-15T16:17:13+08:00">
+                2019-10-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-30T23:47:23+08:00">
+                2020-03-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="小程序配置文件"><a href="#小程序配置文件" class="headerlink" title="小程序配置文件"></a>小程序配置文件</h1><p>一个小程序页面由四个文件组成，分别是：<br>文件类型    必需    作用<br>js    是    页面逻辑<br>wxml    是    页面结构<br>json    否    页面配置<br>wxss    否    页面样式表</p>
+<blockquote>
+<p>注意：为了方便开发者减少配置项，描述页面的四个文件必须具有相同的路径与文件名<br>允许上传的文件<br>在项目目录中，以下文件会经过编译，因此上传之后无法直接访问到：.js、app.json、.wxml、.wxss（其中 wxml 和 wxss 文件仅针对在 app.json 中配置了的页面）。除此之外，只有后缀名在白名单内的文件可以被上传，不在白名单列表内文件在开发工具能被访问到，但无法被上传。具体白名单列表如下：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">wxs</span><br><span class="line">png</span><br><span class="line">jpg</span><br><span class="line">jpeg</span><br><span class="line">gif</span><br><span class="line">svg</span><br><span class="line">json</span><br><span class="line">cer</span><br><span class="line">mp3</span><br><span class="line">aac</span><br><span class="line">m4a</span><br><span class="line">mp4</span><br><span class="line">wav</span><br><span class="line">ogg</span><br><span class="line">silk</span><br></pre></td></tr></table></figure>
+
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><p>小程序包含一个描述整体程序的 app 和多个描述各自页面的 page。<br>一个小程序主体部分由三个文件组成，必须放在项目的根目录，如下：<br>文件    必需    作用<br>app.js    是    小程序逻辑<br>app.json    是    小程序公共配置<br>app.wxss    否    小程序公共样式表</p>
+<h1 id="小程序配置-app-json"><a href="#小程序配置-app-json" class="headerlink" title="小程序配置 app.json"></a>小程序配置 app.json</h1><p>app.json 是当前小程序的全局配置，包括了小程序的所有页面路径、界面表现、网络超时时间、底部 tab 等<br>app.json 配置内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">//页面路径列表</span><br><span class="line">  &quot;pages&quot;: [</span><br><span class="line">    &quot;pages/index/index&quot;,</span><br><span class="line">    &quot;pages/logs/index&quot;</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">//全局的默认窗口表现</span><br><span class="line"></span><br><span class="line">  &quot;window&quot;: &#123;</span><br><span class="line"></span><br><span class="line">//导航栏样式，仅支持以下值:default 默认样式、custom 自定义导航栏</span><br><span class="line"></span><br><span class="line">   &quot;backgroundTextStyle&quot;: &quot;light&quot;,</span><br><span class="line"></span><br><span class="line">  //顶部背景色，仅支持十六进制颜色</span><br><span class="line"></span><br><span class="line">    &quot;navigationBarBackgroundColor&quot;: &quot;#fff&quot;,</span><br><span class="line"></span><br><span class="line">  //导航栏标题文字内容</span><br><span class="line"></span><br><span class="line">    &quot;navigationBarTitleText&quot;: &quot;极客教程&quot;,</span><br><span class="line"></span><br><span class="line">  //导航栏标题颜色，仅支持 black / white</span><br><span class="line"></span><br><span class="line">    &quot;navigationBarTextStyle&quot;: &quot;black&quot;,</span><br><span class="line"></span><br><span class="line">//根据项目需求决定下面几个内容是否添加</span><br><span class="line"></span><br><span class="line">//窗口的背景色</span><br><span class="line"></span><br><span class="line">&quot;backgroundColor&quot;:&quot;#ffffff&quot;,</span><br><span class="line"></span><br><span class="line">//下拉 loading 的样式，仅支持 dark / light</span><br><span class="line"></span><br><span class="line">&quot;backgroundTextStyle&quot;:&quot;light&quot;,</span><br><span class="line"></span><br><span class="line">//顶部窗口的背景色，仅 iOS 支持</span><br><span class="line"></span><br><span class="line">&quot;backgroundColorTop&quot;:&quot;#ffffff&quot;,</span><br><span class="line"></span><br><span class="line">//底部窗口的背景色，仅 iOS 支持</span><br><span class="line"></span><br><span class="line">&quot;backgroundColorBottom&quot;:&quot;#ffffff&quot;,</span><br><span class="line"></span><br><span class="line">//是否开启全局的下拉刷新</span><br><span class="line"></span><br><span class="line">&quot;enablePullDownRefresh&quot;:&quot;false&quot;,</span><br><span class="line"></span><br><span class="line">//页面上拉触底事件触发时距页面底部距离，单位为px</span><br><span class="line"></span><br><span class="line">&quot;onReachBottomDistance&quot;:&quot;50px&quot;,</span><br><span class="line"></span><br><span class="line">//屏幕旋转设置，支持 auto / portrait / landscape </span><br><span class="line"></span><br><span class="line">&quot;pageOrientation&quot;:&quot;auto&quot;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">//底部tab栏的表现</span><br><span class="line"></span><br><span class="line">  &quot;tabBar&quot;: &#123;</span><br><span class="line"></span><br><span class="line">// list接受一个数组，只能配置最少 2 个、最多 5 个 tab</span><br><span class="line"></span><br><span class="line">    &quot;list&quot;: [&#123;</span><br><span class="line"></span><br><span class="line">     //页面路径</span><br><span class="line"></span><br><span class="line">      &quot;pagePath&quot;: &quot;pages/index/index&quot;,</span><br><span class="line"></span><br><span class="line">      //tab上按钮文字</span><br><span class="line"></span><br><span class="line">      &quot;text&quot;: &quot;首页&quot;</span><br><span class="line"></span><br><span class="line">//图片路径，icon 大小限制为40kb，不支持网络图片,当 postion 为 top 时，不显示 icon</span><br><span class="line"></span><br><span class="line">      &quot;iconPath&quot;: &quot;pages/imges/1.png&quot;,</span><br><span class="line"></span><br><span class="line">//选中时的图片路径，icon 大小限制为40kb，不支持网络图片,当 postion 为 top 时，不显示 icon</span><br><span class="line"></span><br><span class="line">     &quot;selectedIconPath&quot;: &quot;pages/imges/1.png&quot;,</span><br><span class="line"></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      &quot;pagePath&quot;: &quot;pages/logs/logs&quot;,</span><br><span class="line">      &quot;text&quot;: &quot;日志&quot;</span><br><span class="line">      &quot;iconPath&quot;: &quot;pages/imges/2.png&quot;,</span><br><span class="line">      &quot;selectedIconPath&quot;: &quot;pages/imges/2.png&quot;,</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">//设置网络超时时间</span><br><span class="line"></span><br><span class="line">  &quot;networkTimeout&quot;: &#123;</span><br><span class="line"></span><br><span class="line"> //request的超时时间,单位:毫秒</span><br><span class="line">//涉及request内容设置</span><br><span class="line"></span><br><span class="line">    &quot;request&quot;: 10000,</span><br><span class="line"></span><br><span class="line">//downloadFile的超时时间,单位:毫秒</span><br><span class="line">//涉及download内容设置</span><br><span class="line"></span><br><span class="line">    &quot;downloadFile&quot;: 10000,</span><br><span class="line"></span><br><span class="line">//connectSocket的超时时间,单位:毫秒</span><br><span class="line">//涉及Socket内容设置</span><br><span class="line"></span><br><span class="line">   &quot;connectSocket&quot;:10000,</span><br><span class="line"></span><br><span class="line">//uploadFile的超时时间,单位:毫秒</span><br><span class="line">//涉及upload内容设置</span><br><span class="line"></span><br><span class="line">   &quot;uploadFile&quot;:10000</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">//是否开启 debug 模式，默认关闭</span><br><span class="line">  &quot;debug&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">属性    类型  必填  描述  最低版本</span><br><span class="line">pages    string[]    是   页面路径列表  </span><br><span class="line">window    Object  否   全局的默认窗口表现   </span><br><span class="line">tabBar    Object  否   底部 tab 栏的表现 </span><br><span class="line">networkTimeout    Object  否   网络超时时间  </span><br><span class="line">debug    boolean 否   是否开启 debug 模式，默认关闭  </span><br><span class="line">functionalPages    boolean 否   是否启用插件功能页，默认关闭  2.1.0</span><br><span class="line">subpackages    Object[]    否   分包结构配置  1.7.3</span><br><span class="line">workers    string  否   Worker 代码放置的目录  1.9.90</span><br><span class="line">requiredBackgroundModes    string[]    否   需要在后台使用的能力，如「音乐播放」  </span><br><span class="line">plugins    Object  否   使用到的插件  1.9.6</span><br><span class="line">preloadRule    Object  否   分包预下载规则 2.3.0</span><br><span class="line">resizable    boolean 否   iPad 小程序是否支持屏幕旋转，默认关闭   2.3.0</span><br><span class="line">navigateToMiniProgramAppIdList    string[]    否   需要跳转的小程序列表，详见 wx.navigateToMiniProgram  2.4.0</span><br><span class="line">usingComponents    Object  否   全局自定义组件配置   开发者工具 1.02.1810190</span><br><span class="line">permission    Object  否   小程序接口权限相关设置 微信客户端 7.0.0</span><br></pre></td></tr></table></figure>
+
+<p>必须要有这个文件，没有也是会报错！<br>可以在这个文件中监听并处理小程序的生命周期函数、声明全局变量</p>
+<h1 id="JSON语法"><a href="#JSON语法" class="headerlink" title="JSON语法"></a>JSON语法</h1><p>JSON文件都是被包裹在一个大括号中 {}，通过key-value的方式来表达数据。JSON的Key必须包裹在一个双引号中，忘了给 Key 值加双引号或者是把双引号写成单引号是常见错误。<br>JSON的值只能是以下几种数据格式，其他任何格式都会触发报错，例如 JavaScript 中的 undefined。<br>数字，包含浮点数和整数<br>字符串，需要包裹在双引号中<br>Bool值，true 或者 false<br>数组，需要包裹在方括号中 []<br>对象，需要包裹在大括号中 {}<br>Null<br>还需要注意的是 JSON 文件中无法使用注释，试图添加注释将会引发报错<br>app.wxss<br>这个文件不是必须的，只是个全局CSS样式文件<br>app.wxml<br>这个也不是必须的，而且这个并不是指主界面,小程序的主页面是靠在JSON文件中配置来决定的<br>有了这两个文件运行程序，IDE就不会报错了</p>
+<h1 id="WXML"><a href="#WXML" class="headerlink" title="WXML"></a>WXML</h1><p>WXML（WeiXin Markup Language）是框架设计的一套标签语言，结合基础组件、事件系统，可以构建出页面的结构<br>数据绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--wxml--&gt;</span><br><span class="line">&lt;view&gt; &#123;&#123;message&#125;&#125; &lt;/view&gt;</span><br><span class="line">// page.js</span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: &apos;Hello MINA!&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>列表渲染</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--wxml--&gt;</span><br><span class="line">&lt;view wx:for=&quot;&#123;&#123;array&#125;&#125;&quot;&gt; &#123;&#123;item&#125;&#125; &lt;/view&gt;</span><br><span class="line">// page.js</span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    array: [1, 2, 3, 4, 5]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>条件渲染</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--wxml--&gt;</span><br><span class="line">&lt;view wx:if=&quot;&#123;&#123;view == &apos;WEBVIEW&apos;&#125;&#125;&quot;&gt; WEBVIEW &lt;/view&gt;</span><br><span class="line">&lt;view wx:elif=&quot;&#123;&#123;view == &apos;APP&apos;&#125;&#125;&quot;&gt; APP &lt;/view&gt;</span><br><span class="line">&lt;view wx:else=&quot;&#123;&#123;view == &apos;MINA&apos;&#125;&#125;&quot;&gt; MINA &lt;/view&gt;</span><br><span class="line">// page.js</span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    view: &apos;MINA&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--wxml--&gt;</span><br><span class="line">&lt;template name=&quot;staffName&quot;&gt;</span><br><span class="line">  &lt;view&gt;</span><br><span class="line">    FirstName: &#123;&#123;firstName&#125;&#125;, LastName: &#123;&#123;lastName&#125;&#125;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;template is=&quot;staffName&quot; data=&quot;&#123;&#123;...staffA&#125;&#125;&quot;&gt;&lt;/template&gt;</span><br><span class="line">&lt;template is=&quot;staffName&quot; data=&quot;&#123;&#123;...staffB&#125;&#125;&quot;&gt;&lt;/template&gt;</span><br><span class="line">&lt;template is=&quot;staffName&quot; data=&quot;&#123;&#123;...staffC&#125;&#125;&quot;&gt;&lt;/template&gt;</span><br><span class="line">// page.js</span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    staffA: &#123;firstName: &apos;Hulk&apos;, lastName: &apos;Hu&apos;&#125;,</span><br><span class="line">    staffB: &#123;firstName: &apos;Shang&apos;, lastName: &apos;You&apos;&#125;,</span><br><span class="line">    staffC: &#123;firstName: &apos;Gideon&apos;, lastName: &apos;Lin&apos;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>引用<br>WXML 提供两种文件引用方式import和include<br>import<br>import可以在该文件中使用目标文件定义的template，如：<br>在 item.wxml 中定义了一个叫item的template：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- item.wxml --&gt;</span><br><span class="line">&lt;template name=&quot;item&quot;&gt;</span><br><span class="line">  &lt;text&gt;&#123;&#123;text&#125;&#125;&lt;/text&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在 index.wxml 中引用了 item.wxml，就可以使用item模板：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;import src=&quot;item.wxml&quot;/&gt;</span><br><span class="line">&lt;template is=&quot;item&quot; data=&quot;&#123;&#123;text: &apos;forbar&apos;&#125;&#125;&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>import 的作用域<br>import 有作用域的概念，即只会 import 目标文件中定义的 template，而不会 import 目标文件 import 的 template<br>如：C import B，B import A，在C中可以使用B定义的template，在B中可以使用A定义的template，但是C不能使用A定义的template</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- A.wxml --&gt;</span><br><span class="line">&lt;template name=&quot;A&quot;&gt;</span><br><span class="line">  &lt;text&gt; A template &lt;/text&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;!-- B.wxml --&gt;</span><br><span class="line">&lt;import src=&quot;a.wxml&quot;/&gt;</span><br><span class="line">&lt;template name=&quot;B&quot;&gt;</span><br><span class="line">  &lt;text&gt; B template &lt;/text&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;!-- C.wxml --&gt;</span><br><span class="line">&lt;import src=&quot;b.wxml&quot;/&gt;</span><br><span class="line">&lt;template is=&quot;A&quot;/&gt;  &lt;!-- Error! Can not use tempalte when not import A. --&gt;</span><br><span class="line">&lt;template is=&quot;B&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>include<br>include 可以将目标文件除了 <template> <wxs> 外的整个代码引入，相当于是拷贝到 include 位置，如：</wxs></template></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- index.wxml --&gt;</span><br><span class="line">&lt;include src=&quot;header.wxml&quot;/&gt;</span><br><span class="line">&lt;view&gt; body &lt;/view&gt;</span><br><span class="line">&lt;include src=&quot;footer.wxml&quot;/&gt;</span><br><span class="line">&lt;!-- header.wxml --&gt;</span><br><span class="line">&lt;view&gt; header &lt;/view&gt;</span><br><span class="line">&lt;!-- footer.wxml --&gt;</span><br><span class="line">&lt;view&gt; footer &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="WXSS"><a href="#WXSS" class="headerlink" title="WXSS"></a>WXSS</h1><p>WXSS (WeiXin Style Sheets)是一套样式语言，用于描述 WXML 的组件样式<br>WXSS 用来决定 WXML 的组件应该怎么显示<br>WXSS 具有 CSS 大部分特性,WXSS 对 CSS 进行了扩充以及修改<br>与 CSS 相比，WXSS 扩展的特性有：<br>尺寸单位<br>样式导入<br>尺寸单位<br>rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx<br>如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素<br>设备    rpx换算px (屏幕宽度/750)    px换算rpx (750/屏幕宽度)<br>iPhone5    1rpx = 0.42px    1px = 2.34rpx<br>iPhone6    1rpx = 0.5px    1px = 2rpx<br>iPhone6 Plus    1rpx = 0.552px    1px = 1.81rpx<br>建议： 开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准<br>注意： 在较小的屏幕上不可避免的会有一些毛刺，请在开发时尽量避免这种情况<br>样式导入<br>使用@import语句可以导入外联样式表，@import后跟需要导入的外联样式表的相对路径，用;表示语句结束<br>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/** common.wxss **/</span><br><span class="line">.small-p &#123;</span><br><span class="line">  padding:5px;</span><br><span class="line">&#125;</span><br><span class="line">/** app.wxss **/</span><br><span class="line">@import &quot;common.wxss&quot;;</span><br><span class="line">.middle-p &#123;</span><br><span class="line">  padding:15px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>内联样式<br>框架组件上支持使用 style、class 属性来控制组件的样式。<br>style：静态的样式统一写到 class 中。style 接收动态的样式，在运行时会进行解析，请尽量避免将静态的样式写进 style 中，以免影响渲染速度<br><view style="color:;"><br>class：用于指定样式规则，其属性值是样式规则中类选择器名(样式类名)的集合，样式类名不需要带上.，样式类名之间用空格分隔。<br>&lt;view class=”normal_view” /<br>选择器<br>目前支持的选择器有：<br>选择器    样例    样例描述</view></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.class	.intro	选择所有拥有 class=&quot;intro&quot; 的组件</span><br><span class="line">#id	#firstname	选择拥有 id=&quot;firstname&quot; 的组件</span><br><span class="line">element	view	选择所有 view 组件</span><br><span class="line">element, element	view, checkbox	选择所有文档的 view 组件和所有的 checkbox 组件</span><br><span class="line">::after	view::after	在 view 组件后边插入内容</span><br><span class="line">::before	view::before	在 view 组件前边插入内容</span><br></pre></td></tr></table></figure>
+
+<p>全局样式与局部样式<br>定义在 app.wxss 中的样式为全局样式，作用于每一个页面<br>在 page 的 wxss 文件中定义的样式为局部样式，只作用在对应的页面，并会覆盖 app.wxss 中相同的选择器</p>
+<h1 id="WXS"><a href="#WXS" class="headerlink" title="WXS"></a>WXS</h1><p>WXS（WeiXin Script）是小程序的一套脚本语言，结合 WXML，可以构建出页面的结构<br>注意<br>WXS 不依赖于运行时的基础库版本，可以在所有版本的小程序中运行<br>WXS 与 JavaScript 是不同的语言，有自己的语法，并不和 JavaScript 一致<br>WXS 的运行环境和其他 JavaScript 代码是隔离的，WXS 中不能调用其他 JavaScript 文件中定义的函数，也不能调用小程序提供的API<br>WXS 函数不能作为组件的事件回调<br>由于运行环境的差异，在 iOS 设备上小程序内的 WXS 会比 JavaScript 代码快 2 ~ 20 倍。在 android 设备上二者运行效率无差异<br>以下是一些使用 WXS 的简单示例<br>页面渲染</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--wxml--&gt;</span><br><span class="line">&lt;wxs module=&quot;m1&quot;&gt;</span><br><span class="line">var msg = &quot;hello world&quot;;</span><br><span class="line"></span><br><span class="line">module.exports.message = msg;</span><br><span class="line">&lt;/wxs&gt;</span><br><span class="line"></span><br><span class="line">&lt;view&gt; &#123;&#123;m1.message&#125;&#125; &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+
+<p>页面输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello world</span><br></pre></td></tr></table></figure>
+
+<p>数据处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// page.js</span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    array: [1, 2, 3, 4, 5, 1, 2, 3, 4]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;!--wxml--&gt;</span><br><span class="line">&lt;!-- 下面的 getMax 函数，接受一个数组，且返回数组中最大的元素的值 --&gt;</span><br><span class="line">&lt;wxs module=&quot;m1&quot;&gt;</span><br><span class="line">var getMax = function(array) &#123;</span><br><span class="line">  var max = undefined;</span><br><span class="line">  for (var i = 0; i &lt; array.length; ++i) &#123;</span><br><span class="line">    max = max === undefined ?</span><br><span class="line">      array[i] :</span><br><span class="line">      (max &gt;= array[i] ? max : array[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  return max;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports.getMax = getMax;</span><br><span class="line">&lt;/wxs&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 调用 wxs 里面的 getMax 函数，参数为 page.js 里面的 array --&gt;</span><br><span class="line">&lt;view&gt; &#123;&#123;m1.getMax(array)&#125;&#125; &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+
+<p>页面输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h1 id="JS逻辑交互"><a href="#JS逻辑交互" class="headerlink" title="JS逻辑交互"></a>JS逻辑交互</h1><p>一个服务仅仅只有界面展示是不够的,还需要和用户做交互:响应用户的点击、获取用户的位置等等<br>编写JS脚本文件来处理用户的操作:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;view&gt;&#123;&#123; message&#125;&#125;&lt;/view&gt;</span><br><span class="line">&lt;button bindtap=&quot;clickMe&quot;&gt;点击我&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>点击 button 按钮的时候，我们希望把界面上 message 显示成 “Hello World”，于是我们在 button 上声明一个属性: bindtap<br>在 JS 文件里边声明了 clickMe 方法来响应这次点击操作:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  clickMe() &#123;</span><br><span class="line">    this.setData(&#123;message: &apos;Hello World&apos;&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>可以在 JS 中调用小程序提供的丰富的 API，利用这些 API 可以很方便的调起微信提供的能力<br>例如获取用户信息、本地存储、微信支付等</p>
+<h1 id="创建小项目的时候注意事项"><a href="#创建小项目的时候注意事项" class="headerlink" title="创建小项目的时候注意事项"></a>创建小项目的时候注意事项</h1><p>1.小程序暂时不支持 * 通配符<br>2.构建一个新的项目的时候，先把里面的js、wxss、wxml都清空，全局的js去开发者工具输入App进行初始化，pages页面里面的js（例如index.js）去开发者工具里面输入page进行初始化<br>3.调用自己组件的流程如下：先在data中进行声明<br>接口显示的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;code&quot;: 0,</span><br><span class="line">  &quot;data&quot;: &#123;</span><br><span class="line">    &quot;navList&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;首页&quot;,</span><br><span class="line">        &quot;id&quot;: 0</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;动画&quot;,</span><br><span class="line">        &quot;id&quot;: 1</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;番剧&quot;,</span><br><span class="line">        &quot;id&quot;: 2</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;国创&quot;,</span><br><span class="line">        &quot;id&quot;: 3</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;音乐&quot;,</span><br><span class="line">        &quot;id&quot;: 4</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;舞蹈&quot;,</span><br><span class="line">        &quot;id&quot;: 5</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;科技&quot;,</span><br><span class="line">        &quot;id&quot;: 6</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;游戏&quot;,</span><br><span class="line">        &quot;id&quot;: 7</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;娱乐&quot;,</span><br><span class="line">        &quot;id&quot;: 8</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;鬼畜&quot;,</span><br><span class="line">        &quot;id&quot;: 9</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;电影&quot;,</span><br><span class="line">        &quot;id&quot;: 10</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;电视剧&quot;,</span><br><span class="line">        &quot;id&quot;: 11</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;纪录片&quot;,</span><br><span class="line">        &quot;id&quot;: 12</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;影视&quot;,</span><br><span class="line">        &quot;id&quot;: 13</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;时尚&quot;,</span><br><span class="line">        &quot;id&quot;: 14</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;生活&quot;,</span><br><span class="line">        &quot;id&quot;: 15</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;广告&quot;,</span><br><span class="line">        &quot;id&quot;: 16</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;直播&quot;,</span><br><span class="line">        &quot;id&quot;: 17</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;text&quot;: &quot;相簿&quot;,</span><br><span class="line">        &quot;id&quot;: 18</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    yixuan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://geekes.github.io/2019/10/15/小程序入门教程/" title="小程序入门教程">https://geekes.github.io/2019/10/15/小程序入门教程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+  <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/14/Nodejs入门教程/" rel="next" title="Node.js入门教程">
+                <i class="fa fa-chevron-left"></i> Node.js入门教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/21/JavaScript入门教程/" rel="prev" title="JavaScript入门教程">
+                JavaScript入门教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NjU3MC8yMzA4MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="yixuan">
+            
+              <p class="site-author-name" itemprop="name">yixuan</p>
+              <p class="site-description motion-element" itemprop="description">极客教程 geekes's Blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/geekes" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhangyuxuan9694@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/okjike" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://how2j.cn/" title="how2j的java教程" target="_blank">how2j的java教程</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyandong.com/" title="绿帽子大学" target="_blank">绿帽子大学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wanandroid.com/" title="wanandroid" target="_blank">wanandroid</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+<link rel="stylesheet" href="./dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="./dist/APlayer.min.js"></script>
+<script src="./dist/music.js"></script>
+
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小程序配置文件"><span class="nav-number">1.</span> <span class="nav-text">小程序配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目录结构"><span class="nav-number">2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小程序配置-app-json"><span class="nav-number">3.</span> <span class="nav-text">小程序配置 app.json</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置项"><span class="nav-number">4.</span> <span class="nav-text">配置项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JSON语法"><span class="nav-number">5.</span> <span class="nav-text">JSON语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WXML"><span class="nav-number">6.</span> <span class="nav-text">WXML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WXSS"><span class="nav-number">7.</span> <span class="nav-text">WXSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WXS"><span class="nav-number">8.</span> <span class="nav-text">WXS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS逻辑交互"><span class="nav-number">9.</span> <span class="nav-text">JS逻辑交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建小项目的时候注意事项"><span class="nav-number">10.</span> <span class="nav-text">创建小项目的时候注意事项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="aplayer" data-id="484056997" data-server="netease" data-type="song" data-autoplay="true"></div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+
+ <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <span class="author" itemprop="copyrightHolder">yixuan</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">全站字数:</span>
+    
+    <span title="Site words total count">74.7k</span>
+  
+</div>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/01/2019 12:49:00"); 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

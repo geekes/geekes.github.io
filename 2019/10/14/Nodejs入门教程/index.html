@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Node.js,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="极客教程" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="简介Node.js是一个基于Chrome V8引擎的JavaScript运行环境Node.js使用了一个事件驱动、非阻塞式I/O的模型,使其轻量又高效主要内容包含模块机制的揭示、异步I/O 实现原理的展现、异步编程的探讨、内存控制的介绍、二进制数据Buffer 的细节、Node 中的网络编程基础、Node 中的Web 开发、进程间的消息传递、Node 测试以及通过Node 构建产品需要的注意事项C">
+<meta name="keywords" content="Node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js入门教程">
+<meta property="og:url" content="https://geekes.github.io/2019/10/14/Nodejs入门教程/index.html">
+<meta property="og:site_name" content="极客教程">
+<meta property="og:description" content="简介Node.js是一个基于Chrome V8引擎的JavaScript运行环境Node.js使用了一个事件驱动、非阻塞式I/O的模型,使其轻量又高效主要内容包含模块机制的揭示、异步I/O 实现原理的展现、异步编程的探讨、内存控制的介绍、二进制数据Buffer 的细节、Node 中的网络编程基础、Node 中的Web 开发、进程间的消息传递、Node 测试以及通过Node 构建产品需要的注意事项C">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://geekes.github.io/images/1.gif">
+<meta property="og:image" content="https://geekes.github.io/images/31.PNG">
+<meta property="og:updated_time" content="2020-03-06T09:53:22.349Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js入门教程">
+<meta name="twitter:description" content="简介Node.js是一个基于Chrome V8引擎的JavaScript运行环境Node.js使用了一个事件驱动、非阻塞式I/O的模型,使其轻量又高效主要内容包含模块机制的揭示、异步I/O 实现原理的展现、异步编程的探讨、内存控制的介绍、二进制数据Buffer 的细节、Node 中的网络编程基础、Node 中的Web 开发、进程间的消息传递、Node 测试以及通过Node 构建产品需要的注意事项C">
+<meta name="twitter:image" content="https://geekes.github.io/images/1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://geekes.github.io/2019/10/14/Nodejs入门教程/">
+
+
+
+
+
+  <title>Node.js入门教程 | 极客教程</title>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">极客教程</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">geekes's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+
+
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://geekes.github.io/2019/10/14/Nodejs入门教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yixuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极客教程">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Node.js入门教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-14T09:22:49+08:00">
+                2019-10-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-06T17:53:22+08:00">
+                2020-03-06
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  25
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Node.js是一个基于Chrome V8引擎的JavaScript运行环境<br>Node.js使用了一个事件驱动、非阻塞式I/O的模型,使其轻量又高效<br>主要内容包含模块机制的揭示、异步I/O 实现原理的展现、异步编程的探讨、内存控制的介绍、二进制数据Buffer 的细节、Node 中的网络编程基础、Node 中的Web 开发、进程间的消息传递、Node 测试以及通过Node 构建产品需要的注意事项<br>Chrome浏览器和Node的组件构成<br><img src="/images/1.gif" alt></p>
+<h1 id="Node安装"><a href="#Node安装" class="headerlink" title="Node安装"></a>Node安装</h1><p>官网下载地址:<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a></p>
+<h2 id="windows安装"><a href="#windows安装" class="headerlink" title="windows安装"></a>windows安装</h2><p>建议直接选择:Windows Installer (.msi)下载进行安装,建议直接下载最新版本的安装包直接安装<br>从web服务器开发的角度来看，Node有很多好处：</p>
+<ul>
+<li><p>卓越的性能表现！Node 为优化 web 应用的吞吐量和扩展度而生，对常见的 web 开发问题是一套绝佳方案（比如实时 web 应用）</p>
+</li>
+<li><p>代码还是熟悉的老伙伴JavaScript，这意味着在客户端和服务器端“上下文切换”的时间成本更低</p>
+</li>
+<li><p>与传统的 web 服务器语言（例如 Python、PHP 等）相比，JavaScript 理念更新，语言设计的改进带来了诸多好处。许多其它新近流行的语言也可编译/转换成 JavaScript，所以TypeScript、CoffeeScript、ClojureScript、Scala、LiveScript 等等也可以使用</p>
+</li>
+<li><p>Node 包管理工具（node package manager，NPM）提供了数十万个可重用的工具包。它还提供了一流的依赖解决方案，可实现自动化工具链构建</p>
+</li>
+<li><p>Node.js 是可移植的，可运行于 Microsoft Windows、macOS、Linux、Solaris、FreeBSD、OpenBSD、WebOS 和 NonStop OS。 web 主机供应商对其提供了良好支持（包括专用的基础框架和构建 Node 站点的文档）</p>
+</li>
+<li><p>它有一个非常活跃的第三方生态系统和开发者社区<br>可以用Node.js的HTTP包来创建一个简单的web服务器<br>创建一个web服务器,它将监听对URL<a href="http://127.0.0.1:8000/" target="_blank" rel="noopener">http://127.0.0.1:8000/</a> 所有种类的HTTP请求<br>当接收到一个请求时,脚本将做出响应：返回一个字符串”Hello World”</p>
+</li>
+<li><p>打开终端（Windows 中打开命令行工具）</p>
+</li>
+<li><p>创建一个空文件夹用来存放项目,比如”node”，然后在终端输入以下命令进入这个文件夹：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /d D:\node\nodejs</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一个名为”app.js”的文件，把以下代码粘贴进来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 调用 HTTP 模块</span><br><span class="line">const http = require(&quot;http&quot;);</span><br><span class="line"></span><br><span class="line">// 创建 HTTP 服务器并监听 8000 端口的所有请求</span><br><span class="line">http.createServer((request, response) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">   // 用 HTTP 状态码和内容类型来设定 HTTP 响应头</span><br><span class="line">   response.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/plain&apos;&#125;);</span><br><span class="line"></span><br><span class="line">   // 发送响应体 &quot;Hello World&quot;</span><br><span class="line">   response.end(&apos;Hello World\n&apos;);</span><br><span class="line">&#125;).listen(8000);</span><br><span class="line"></span><br><span class="line">// 在控制台打印访问服务器的 URL</span><br><span class="line">console.log(&apos;服务器运行于 http://127.0.0.1:8000/&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将其保存在刚才创建的文件夹,返回终端并输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node &quot;app.js&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>在浏览器地址栏中输入”<a href="http://localhost:8000&quot;并按回车，可以看到输出" target="_blank" rel="noopener">http://localhost:8000&quot;并按回车，可以看到输出</a> “Hello World”</p>
+<h1 id="NPM使用与安装"><a href="#NPM使用与安装" class="headerlink" title="NPM使用与安装"></a>NPM使用与安装</h1><p>NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：</p>
+<ul>
+<li>允许用户从NPM服务器下载别人编写的第三方包到本地使用</li>
+<li>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用</li>
+<li>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用<br>nodejs已经集成了npm，以通过输入 “npm -v” 来测试是否成功安装。命令如下，出现版本提示表示安装成功:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm -v</span><br><span class="line">6.4.1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="npm-命令来升级，命令如下："><a href="#npm-命令来升级，命令如下：" class="headerlink" title="npm 命令来升级，命令如下："></a>npm 命令来升级，命令如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install npm -g</span><br></pre></td></tr></table></figure>
+
+<p>Window 系统使用以下命令即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install npm -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-npm-命令安装模块"><a href="#使用-npm-命令安装模块" class="headerlink" title="使用 npm 命令安装模块"></a>使用 npm 命令安装模块</h2><p>npm 安装 Node.js 模块语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install &lt;Module Name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用 npm 命令安装常用的 Node.js web框架模块 express:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express</span><br></pre></td></tr></table></figure>
+
+<p>express 包就放在了工程目录下的 node_modules 目录中<br>只需要通过 require(‘express’) 的方式就好，无需指定第三方包路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var express = require(&apos;express&apos;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="全局安装与本地安装"><a href="#全局安装与本地安装" class="headerlink" title="全局安装与本地安装"></a>全局安装与本地安装</h2><p>npm 的包安装分为本地安装（local）、全局安装（global）两种，差别只是有没有-g而已，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install express          # 本地安装</span><br><span class="line">npm install express -g   # 全局安装</span><br></pre></td></tr></table></figure>
+
+<p>如果出现以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm err! Error: connect ECONNREFUSED 127.0.0.1:8087</span><br></pre></td></tr></table></figure>
+
+<p>解决办法为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set proxy null</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h2><ul>
+<li>将安装包放在 ./node_modules下（运行npm命令时所在的目录）<br>如果没有node_modules目录，会在当前执行npm命令的目录下生成node_modules目录</li>
+<li>可以通过 require() 来引入本地安装的包</li>
+</ul>
+<h2 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h2><ul>
+<li>将安装包放在 /usr/local 下或者你 node 的安装目录</li>
+<li>可以直接在命令行里使用<br>如果你希望具备两者功能，则需要在两个地方安装它或使用 npm link<br>接下来我们使用全局方式安装 express<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express -g</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="查看安装信息"><a href="#查看安装信息" class="headerlink" title="查看安装信息"></a>查看安装信息</h2><p>查看所有全局安装的模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm list -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="某个模块的版本号，可以使用命令如下："><a href="#某个模块的版本号，可以使用命令如下：" class="headerlink" title="某个模块的版本号，可以使用命令如下："></a>某个模块的版本号，可以使用命令如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm list grunt</span><br></pre></td></tr></table></figure>
+
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>package.json 位于模块的目录下，用于定义包的属性。<br>express 包的 package.json 文件，位于 node_modules/express/package.json 内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;_from&quot;: &quot;express@^4.16.2&quot;,</span><br><span class="line">  &quot;_id&quot;: &quot;express@4.16.4&quot;,</span><br><span class="line">  &quot;_inBundle&quot;: false,</span><br><span class="line">  &quot;_integrity&quot;: &quot;sha512-j12Uuyb4FMrd/qQAm6uCHAkPtO8FDTRJZBDd5D2KOL2eLaz1yUNdUB/NOIyq0iU4q4cFarsUCrnFDPBcnksuOg==&quot;,</span><br><span class="line">  &quot;_location&quot;: &quot;/express&quot;,</span><br><span class="line">  &quot;_phantomChildren&quot;: &#123;&#125;,</span><br><span class="line">  &quot;_requested&quot;: &#123;</span><br><span class="line">    &quot;type&quot;: &quot;range&quot;,</span><br><span class="line">    &quot;registry&quot;: true,</span><br><span class="line">    &quot;raw&quot;: &quot;express@^4.16.2&quot;,</span><br><span class="line">    &quot;name&quot;: &quot;express&quot;,</span><br><span class="line">    &quot;escapedName&quot;: &quot;express&quot;,</span><br><span class="line">    &quot;rawSpec&quot;: &quot;^4.16.2&quot;,</span><br><span class="line">    &quot;saveSpec&quot;: null,</span><br><span class="line">    &quot;fetchSpec&quot;: &quot;^4.16.2&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;_requiredBy&quot;: [</span><br><span class="line">    &quot;/webpack-bundle-analyzer&quot;,</span><br><span class="line">    &quot;/webpack-dev-server&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;_resolved&quot;: &quot;https://registry.npmjs.org/express/-/express-4.16.4.tgz&quot;,</span><br><span class="line">  &quot;_shasum&quot;: &quot;fddef61926109e24c515ea97fd2f1bdbf62df12e&quot;,</span><br><span class="line">  &quot;_spec&quot;: &quot;express@^4.16.2&quot;,</span><br><span class="line">  &quot;_where&quot;: &quot;C:\\Windows\\system32\\vue-demo\\node_modules\\webpack-bundle-analyzer&quot;,</span><br><span class="line">  &quot;author&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;TJ Holowaychuk&quot;,</span><br><span class="line">    &quot;email&quot;: &quot;tj@vision-media.ca&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;bugs&quot;: &#123;</span><br><span class="line">    &quot;url&quot;: &quot;https://github.com/expressjs/express/issues&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;bundleDependencies&quot;: false,</span><br><span class="line">  &quot;contributors&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;Aaron Heckmann&quot;,</span><br><span class="line">      &quot;email&quot;: &quot;aaron.heckmann+github@gmail.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;Ciaran Jessup&quot;,</span><br><span class="line">      &quot;email&quot;: &quot;ciaranj@gmail.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;Douglas Christopher Wilson&quot;,</span><br><span class="line">      &quot;email&quot;: &quot;doug@somethingdoug.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;Guillermo Rauch&quot;,</span><br><span class="line">      &quot;email&quot;: &quot;rauchg@gmail.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;Jonathan Ong&quot;,</span><br><span class="line">      &quot;email&quot;: &quot;me@jongleberry.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;Roman Shtylman&quot;,</span><br><span class="line">      &quot;email&quot;: &quot;shtylman+expressjs@gmail.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;Young Jae Sim&quot;,</span><br><span class="line">      &quot;email&quot;: &quot;hanul@hanul.me&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;accepts&quot;: &quot;~1.3.5&quot;,</span><br><span class="line">    &quot;array-flatten&quot;: &quot;1.1.1&quot;,</span><br><span class="line">    &quot;body-parser&quot;: &quot;1.18.3&quot;,</span><br><span class="line">    &quot;content-disposition&quot;: &quot;0.5.2&quot;,</span><br><span class="line">    &quot;content-type&quot;: &quot;~1.0.4&quot;,</span><br><span class="line">    &quot;cookie&quot;: &quot;0.3.1&quot;,</span><br><span class="line">    &quot;cookie-signature&quot;: &quot;1.0.6&quot;,</span><br><span class="line">    &quot;debug&quot;: &quot;2.6.9&quot;,</span><br><span class="line">    &quot;depd&quot;: &quot;~1.1.2&quot;,</span><br><span class="line">    &quot;encodeurl&quot;: &quot;~1.0.2&quot;,</span><br><span class="line">    &quot;escape-html&quot;: &quot;~1.0.3&quot;,</span><br><span class="line">    &quot;etag&quot;: &quot;~1.8.1&quot;,</span><br><span class="line">    &quot;finalhandler&quot;: &quot;1.1.1&quot;,</span><br><span class="line">    &quot;fresh&quot;: &quot;0.5.2&quot;,</span><br><span class="line">    &quot;merge-descriptors&quot;: &quot;1.0.1&quot;,</span><br><span class="line">    &quot;methods&quot;: &quot;~1.1.2&quot;,</span><br><span class="line">    &quot;on-finished&quot;: &quot;~2.3.0&quot;,</span><br><span class="line">    &quot;parseurl&quot;: &quot;~1.3.2&quot;,</span><br><span class="line">    &quot;path-to-regexp&quot;: &quot;0.1.7&quot;,</span><br><span class="line">    &quot;proxy-addr&quot;: &quot;~2.0.4&quot;,</span><br><span class="line">    &quot;qs&quot;: &quot;6.5.2&quot;,</span><br><span class="line">    &quot;range-parser&quot;: &quot;~1.2.0&quot;,</span><br><span class="line">    &quot;safe-buffer&quot;: &quot;5.1.2&quot;,</span><br><span class="line">    &quot;send&quot;: &quot;0.16.2&quot;,</span><br><span class="line">    &quot;serve-static&quot;: &quot;1.13.2&quot;,</span><br><span class="line">    &quot;setprototypeof&quot;: &quot;1.1.0&quot;,</span><br><span class="line">    &quot;statuses&quot;: &quot;~1.4.0&quot;,</span><br><span class="line">    &quot;type-is&quot;: &quot;~1.6.16&quot;,</span><br><span class="line">    &quot;utils-merge&quot;: &quot;1.0.1&quot;,</span><br><span class="line">    &quot;vary&quot;: &quot;~1.1.2&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;deprecated&quot;: false,</span><br><span class="line">  &quot;description&quot;: &quot;Fast, unopinionated, minimalist web framework&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;after&quot;: &quot;0.8.2&quot;,</span><br><span class="line">    &quot;connect-redis&quot;: &quot;3.4.0&quot;,</span><br><span class="line">    &quot;cookie-parser&quot;: &quot;~1.4.3&quot;,</span><br><span class="line">    &quot;cookie-session&quot;: &quot;1.3.2&quot;,</span><br><span class="line">    &quot;ejs&quot;: &quot;2.6.1&quot;,</span><br><span class="line">    &quot;eslint&quot;: &quot;2.13.1&quot;,</span><br><span class="line">    &quot;express-session&quot;: &quot;1.15.6&quot;,</span><br><span class="line">    &quot;hbs&quot;: &quot;4.0.1&quot;,</span><br><span class="line">    &quot;istanbul&quot;: &quot;0.4.5&quot;,</span><br><span class="line">    &quot;marked&quot;: &quot;0.5.1&quot;,</span><br><span class="line">    &quot;method-override&quot;: &quot;3.0.0&quot;,</span><br><span class="line">    &quot;mocha&quot;: &quot;5.2.0&quot;,</span><br><span class="line">    &quot;morgan&quot;: &quot;1.9.1&quot;,</span><br><span class="line">    &quot;multiparty&quot;: &quot;4.2.1&quot;,</span><br><span class="line">    &quot;pbkdf2-password&quot;: &quot;1.2.1&quot;,</span><br><span class="line">    &quot;should&quot;: &quot;13.2.3&quot;,</span><br><span class="line">    &quot;supertest&quot;: &quot;3.3.0&quot;,</span><br><span class="line">    &quot;vhost&quot;: &quot;~3.0.2&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;engines&quot;: &#123;</span><br><span class="line">    &quot;node&quot;: &quot;&gt;= 0.10.0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;files&quot;: [</span><br><span class="line">    &quot;LICENSE&quot;,</span><br><span class="line">    &quot;History.md&quot;,</span><br><span class="line">    &quot;Readme.md&quot;,</span><br><span class="line">    &quot;index.js&quot;,</span><br><span class="line">    &quot;lib/&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;homepage&quot;: &quot;http://expressjs.com/&quot;,</span><br><span class="line">  &quot;keywords&quot;: [</span><br><span class="line">    &quot;express&quot;,</span><br><span class="line">    &quot;framework&quot;,</span><br><span class="line">    &quot;sinatra&quot;,</span><br><span class="line">    &quot;web&quot;,</span><br><span class="line">    &quot;rest&quot;,</span><br><span class="line">    &quot;restful&quot;,</span><br><span class="line">    &quot;router&quot;,</span><br><span class="line">    &quot;app&quot;,</span><br><span class="line">    &quot;api&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;license&quot;: &quot;MIT&quot;,</span><br><span class="line">  &quot;name&quot;: &quot;express&quot;,</span><br><span class="line">  &quot;repository&quot;: &#123;</span><br><span class="line">    &quot;type&quot;: &quot;git&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;git+https://github.com/expressjs/express.git&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;lint&quot;: &quot;eslint .&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;mocha --require test/support/env --reporter spec --bail --check-leaks test/ test/acceptance/&quot;,</span><br><span class="line">    &quot;test-ci&quot;: &quot;istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/ test/acceptance/&quot;,</span><br><span class="line">    &quot;test-cov&quot;: &quot;istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/ test/acceptance/&quot;,</span><br><span class="line">    &quot;test-tap&quot;: &quot;mocha --require test/support/env --reporter tap --check-leaks test/ test/acceptance/&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;version&quot;: &quot;4.16.4&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Package.json 属性说明</p>
+<ul>
+<li>name - 包名</li>
+<li>version - 包的版本号</li>
+<li>description - 包的描述</li>
+<li>homepage - 包的官网 url</li>
+<li>author - 包的作者姓名</li>
+<li>contributors - 包的其他贡献者姓名</li>
+<li>dependencies - 依赖包列表，如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下</li>
+<li>repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上</li>
+<li>main - main 字段指定了程序的主入口文件，require(‘moduleName’) 就会加载这个文件,这个字段的默认值是模块根目录下面的 index.js</li>
+<li>keywords - 关键字</li>
+</ul>
+<h2 id="卸载模块"><a href="#卸载模块" class="headerlink" title="卸载模块"></a>卸载模块</h2><p>使用以下命令来卸载 Node.js 模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm uninstall express</span><br></pre></td></tr></table></figure>
+
+<p>卸载后，你可以到 /node_modules/ 目录下查看包是否还存在，或者使用以下命令查看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm ls</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新模块"><a href="#更新模块" class="headerlink" title="更新模块"></a>更新模块</h2><p>我们可以使用以下命令更新模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm update express</span><br></pre></td></tr></table></figure>
+
+<h2 id="搜索模块"><a href="#搜索模块" class="headerlink" title="搜索模块"></a>搜索模块</h2><p>使用以下来搜索模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm search express</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h2><p>创建模块，package.json 文件是必不可少的 NPM 生成 package.json 文件，生成的文件包含了基本的结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br><span class="line">This utility will walk you through creating a package.json file.</span><br><span class="line">It only covers the most common items, and tries to guess sensible defaults.</span><br><span class="line"></span><br><span class="line">See `npm help json` for definitive documentation on these fields</span><br><span class="line">and exactly what they do.</span><br><span class="line"></span><br><span class="line">Use `npm install &lt;pkg&gt;` afterwards to install a package and</span><br><span class="line">save it as a dependency in the package.json file.</span><br><span class="line"></span><br><span class="line">Press ^C at any time to quit.</span><br><span class="line">package name: (desktop) geekes</span><br><span class="line">version: (1.0.0)</span><br><span class="line">description: node.js 测试模块(www.geekes.cn)</span><br><span class="line">entry point: (index.js)</span><br><span class="line">test command: make test</span><br><span class="line">git repository: https://github.com/tengxu123456/geekes.git</span><br><span class="line">keywords:</span><br><span class="line">author:</span><br><span class="line">license: (ISC)</span><br><span class="line">About to write to C:\Users\zhang\Desktop\package.json:</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;geekes&quot;, # 模块名</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;node.js 测试模块(www.geekes.cn)&quot;, # 描述</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;directories&quot;: &#123;</span><br><span class="line">    &quot;lib&quot;: &quot;lib&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;make test&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;repository&quot;: &#123;</span><br><span class="line">    &quot;type&quot;: &quot;git&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;git+https://github.com/tengxu123456/geekes.git&quot;# Github 地址</span><br><span class="line">About to write to ……/node_modules/package.json:      # 生成地址</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;,</span><br><span class="line">  &quot;bugs&quot;: &#123;</span><br><span class="line">    &quot;url&quot;: &quot;https://github.com/tengxu123456/geekes/issues&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;homepage&quot;: &quot;https://github.com/tengxu123456/geekes#readme&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Is this ok? (yes) yes</span><br></pre></td></tr></table></figure>
+
+<p>输入 “yes” 后会生成 package.json 文件<br>npm 资源库中注册用户（使用邮箱注册）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm tixuan</span><br><span class="line">Username: yixuan</span><br><span class="line">Password:</span><br><span class="line">Email: (this IS public) yixuan@gmail.com</span><br></pre></td></tr></table></figure>
+
+<p>用以下命令来发布模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm publish</span><br></pre></td></tr></table></figure>
+
+<h2 id="淘宝-NPM-镜像"><a href="#淘宝-NPM-镜像" class="headerlink" title="淘宝 NPM 镜像"></a>淘宝 NPM 镜像</h2><p>当前 registry.npm.taobao.org 是从 r.cnpmjs.org 进行全量同步的.<br>当前 npm.taobao.org 运行版本是: cnpmjs.org@<br>本系统运行在 Node.js.org 上.</p>
+<ul>
+<li>开源镜像: <a href="http://npm.taobao.org/mirrors" target="_blank" rel="noopener">http://npm.taobao.org/mirrors</a></li>
+<li>Node.js 镜像: <a href="http://npm.taobao.org/mirrors/node" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/node</a></li>
+<li>alinode 镜像: <a href="http://npm.taobao.org/mirrors/alinode" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/alinode</a></li>
+<li>phantomjs 镜像: <a href="http://npm.taobao.org/mirrors/phantomjs" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/phantomjs</a></li>
+<li>ChromeDriver 镜像: <a href="http://npm.taobao.org/mirrors/chromedriver" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/chromedriver</a></li>
+<li>OperaDriver 镜像: <a href="http://npm.taobao.org/mirrors/operadriver" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/operadriver</a></li>
+<li>Selenium 镜像: <a href="http://npm.taobao.org/mirrors/selenium" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/selenium</a></li>
+<li>Node.js 文档镜像: <a href="http://npm.taobao.org/mirrors/node/latest/docs/api/index.html" target="_blank" rel="noopener">http://npm.taobao.org/mirrors/node/latest/docs/api/index.html</a></li>
+<li>NPM 镜像: <a href="https://npm.taobao.org/mirrors/npm/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/npm/</a></li>
+<li>electron 镜像: <a href="https://npm.taobao.org/mirrors/electron/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/electron/</a></li>
+<li>node-inspector 镜像: <a href="https://npm.taobao.org/mirrors/node-inspector/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-inspector/</a><br>因为npm安装插件是从国外服务器下载，受网络影响大，可能出现异常，<br>来自官网：“这是一个完整 npmjs.org 镜像，你可以用此代替官方版本(只读)<br>同步频率目前为 10分钟 一次以保证尽量与官方服务同步。”<br>cnpm的c 是 copy的意思，即复制 npm 上面的库。<br>把npm 上面的库复制到 国内的服务器上，当需要用的时候，使用 cnpm 命令获取，就会快很多了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><p>安装所有模块. 当安装的时候发现安装的模块还没有同步过来, 淘宝 NPM 会自动在后台进行同步, 下次你再安装这个模块的时候, 就会直接从 淘宝 NPM 安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install [name]</span><br></pre></td></tr></table></figure>
+
+<h2 id="同步模块"><a href="#同步模块" class="headerlink" title="同步模块"></a>同步模块</h2><p>直接通过 sync 命令马上同步一个模块, 只有 cnpm 命令行才有此功能:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm sync connect</span><br></pre></td></tr></table></figure>
+
+<p>当然, 你可以直接通过 web 方式来同步: /sync/connect</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ open https://npm.taobao.org/sync/connect</span><br></pre></td></tr></table></figure>
+
+<h2 id="其它命令"><a href="#其它命令" class="headerlink" title="其它命令"></a>其它命令</h2><p>支持 npm 除了 publish 之外的所有命令, 如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm info connect</span><br></pre></td></tr></table></figure>
+
+<h1 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h1><p>所有模块都提供这些对象以下。变量虽然看起来是全局的，但其实并不是。 它们仅存在于模块范围内</p>
+<h1 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h1><p>node提供了全局的3个设置定时器方法：</p>
+<ul>
+<li>setImmediate(callback[, …args])</li>
+<li>setInterval(callback, delay[, …args])</li>
+<li>setTimeout(callback, delay[, …args])<br>另外对应3个取消定时器的方法</li>
+<li>clearImmediate(immediate)</li>
+<li>clearInterval(timeout)</li>
+<li>clearTimeout(timeout)<h1 id="文件处理"><a href="#文件处理" class="headerlink" title="文件处理"></a>文件处理</h1></li>
+</ul>
+<h1 id="Path模块"><a href="#Path模块" class="headerlink" title="Path模块"></a>Path模块</h1><p>path 模块提供用于处理文件路径和目录路径的实用工具。 它可以使用以下方式访问：</p>
+<h2 id="Windows与POSIX"><a href="#Windows与POSIX" class="headerlink" title="Windows与POSIX"></a>Windows与POSIX</h2><h2 id="可移植操作系统接口-POSIX"><a href="#可移植操作系统接口-POSIX" class="headerlink" title="可移植操作系统接口(POSIX)"></a>可移植操作系统接口(POSIX)</h2><p>可移植操作系统接口（英语：Portable Operating System Interface，缩写为POSIX），是IEEE为要在各种UNIX操作系统上运行软件，而定义API的一系列互相关联的标准的总称，其正式称呼为IEEE Std 1003，而国际标准名称为ISO/IEC 9945。此标准源于一个大约开始于1985年的项目。POSIX这个名称是由理查德·斯托曼应IEEE的要求而提议的一个易于记忆的名称。它基本上是Portable Operating System Interface（可移植操作系统接口）的缩写，而X则表明其对Unix API的传承。<br>Linux基本上逐步实现了POSIX兼容，但并没有参加正式的POSIX认证。<br>微软的Windows NT声称部分实现了POSIX标准。<br>当前的POSIX主要分为四个部分：Base Definitions、System Interfaces、Shell and Utilities和Rationale。<br>综述：目前主流的类Unix操作系统：Unix、Linux都会兼容POSIX的标准，而Windows只是部分实行了POSIX标准，所以后面我们说POSIX系统是指类Unix系统<br>windows系统和类Unix系统的路径的区别</p>
+<h2 id="目录结构的区别"><a href="#目录结构的区别" class="headerlink" title="目录结构的区别"></a>目录结构的区别</h2><p>windows资源管理系统，windows是分不同的磁盘，然后磁盘下面都是树状结构的文件和文件夹<br>而类Unix（Unix、Linux）系统中是不分盘符的，只有一个根目录 /， 都是都是这个下面的子目录或者文件，当然也是树状的机构<br>Linux的目录结构<br><img src="/images/31.PNG" alt></p>
+<h2 id="路径的区别"><a href="#路径的区别" class="headerlink" title="路径的区别"></a>路径的区别</h2><p>除了目录结构有区别外，路径也是有区别的。windows是用反斜杠\分割目录或者文件的，而在类Unix的系统中是用的/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">windows的路径： C:\node\file.html</span><br><span class="line">类Unix的路径：  /node/file.html</span><br></pre></td></tr></table></figure>
+
+<p>path模块获取路径中的文件名<br>path.basename(path[, ext])<br>node提供了win32和posix兼容的api<br>获取路径的文件夹<br>获取路径的扩展名<br>格式化一个路径<br>把路径字符串转换成对象<br>连接多个路径重点<br>获取相对路径<br>智能解析绝对路径<br>判断是否是绝对路径</p>
+<h1 id="OS模块"><a href="#OS模块" class="headerlink" title="OS模块"></a>OS模块</h1><p>Node.js os 模块提供了一些基本的系统操作函数。可以通过以下方式引入该模块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var os = require(&quot;os&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>方法               描述</p>
+<ul>
+<li>os.tmpdir()     返回操作系统的默认临时文件夹</li>
+<li>os.endianness() 返回 CPU 的字节序，可能的是 “BE” 或 “LE”</li>
+<li>os.hostname()   返回操作系统的主机名</li>
+<li>os.type()       返回操作系统名 </li>
+<li>os.platform()   返回操作系统名 </li>
+<li>os.arch() 返回操作系统CPU架构,可能的值有 “x64”、”arm”和 “ia32”</li>
+<li>os.release()  返回操作系统的发行版本</li>
+<li>os.uptime()   返回操作系统运行的时间，以秒为单位</li>
+<li>os.loadavg()  返回一个包含 1、5、15 分钟平均负载的数组</li>
+<li>os.totalmem() 返回系统内存总量，单位为字节</li>
+<li>os.freemem()  返回操作系统空闲内存量，单位是字节</li>
+<li>os.cpus() 返回一个对象数组，包含所安装的每个 CPU/内核的信息：型号、速度（单位 MHz）、时间（一个包含 user、nice、sys、idle 和 irq 所使用 CPU/内核毫秒数的对象）</li>
+<li>os.networkInterfaces()  获得网络接口列表<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const os =require(&apos;os&apos;);</span><br><span class="line">// CPU 的字节序</span><br><span class="line">console.log(&apos;endianness : &apos; + os.endianness());</span><br><span class="line">// 操作系统名</span><br><span class="line">console.log(&apos;type : &apos; + os.type());</span><br><span class="line">// 操作系统名</span><br><span class="line">console.log(&apos;platform : &apos; + os.platform());</span><br><span class="line">// 系统内存总量</span><br><span class="line">console.log(&apos;total memory : &apos; + os.totalmem() + &quot; bytes.&quot;);</span><br><span class="line">// 操作系统空闲内存量</span><br><span class="line">console.log(&apos;free memory : &apos; + os.freemem() + &quot; bytes.&quot;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">endianness : LE</span><br><span class="line">type : Windows_NT</span><br><span class="line">platform : win32</span><br><span class="line">total memory : 4118118400 bytes.</span><br><span class="line">free memory : 1068032000 bytes.</span><br></pre></td></tr></table></figure>
+
+<h1 id="Net网络模块"><a href="#Net网络模块" class="headerlink" title="Net网络模块"></a>Net网络模块</h1><h1 id="文件处理-1"><a href="#文件处理-1" class="headerlink" title="文件处理"></a>文件处理</h1><p>创建input.txt文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hello world</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;);</span><br><span class="line"></span><br><span class="line">fs.readFile(&apos;input.txt&apos;,function(err,data)&#123;</span><br><span class="line">	if (err) &#123;</span><br><span class="line">		return console.error(err);</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(&quot;异步读取:&quot;+data.toString());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const data = fs.readFileSync(&apos;input.txt&apos;);</span><br><span class="line">console.log(&quot;同步读取:&quot;+data.toString());</span><br><span class="line"></span><br><span class="line">console.log(&quot;程序执行成功！&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">同步读取:hello world</span><br><span class="line">程序执行成功！</span><br><span class="line">异步读取:hello world</span><br></pre></td></tr></table></figure>
+
+<h1 id="HTTP模块"><a href="#HTTP模块" class="headerlink" title="HTTP模块"></a>HTTP模块</h1><h1 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//引入 events模块</span><br><span class="line">const events = require(&apos;events&apos;);</span><br><span class="line">//创建 eventEmitter对象</span><br><span class="line">const eventEmitter = new events.EventEmitter();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//引入 events模块</span><br><span class="line">const EventEmitter = require(&apos;events&apos;).EventEmitter; </span><br><span class="line">//创建 eventEmitter对象</span><br><span class="line">const event = new EventEmitter(); </span><br><span class="line">// 注册event事件，event是事件名字，最好符合以驼峰命名规范</span><br><span class="line">  event.on(&apos;event&apos;, function() &#123; </span><br><span class="line">	  console.log(&apos;event 事件触发&apos;); </span><br><span class="line">   &#125;); </span><br><span class="line">    setTimeout(function() &#123; </span><br><span class="line">    	// 触发event事件</span><br><span class="line">    event.emit(&apos;event&apos;); </span><br><span class="line">   &#125;, 1000);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//引入 events模块</span><br><span class="line">const events= require(&apos;events&apos;);</span><br><span class="line"></span><br><span class="line">//创建 eventEmitter对象</span><br><span class="line">const emitter = new events.EventEmitter(); </span><br><span class="line"></span><br><span class="line">  emitter.on(&apos;event&apos;, function(arg1,arg2) &#123; </span><br><span class="line">	  console.log(&apos;event1事件触发&apos;,arg1,arg2); </span><br><span class="line">   &#125;); </span><br><span class="line">  emitter.on(&apos;event&apos;, function(arg1,arg2) &#123; </span><br><span class="line">	  console.log(&apos;event2事件触发&apos;,arg1,arg2); </span><br><span class="line">   &#125;); </span><br><span class="line">emitter.emit(&apos;event&apos;,&apos;arg1&apos;,&apos;arg2&apos;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="什么是-Express"><a href="#什么是-Express" class="headerlink" title="什么是 Express?"></a>什么是 Express?</h1><p>Express 是最流行的 Node 框架，是许多其它流行 Node 框架 的底层库。它提供了以下机制：</p>
+<ul>
+<li>为不同 URL 路径中使用不同 HTTP 动词的请求（路由）编写处理程序</li>
+<li>集成了“视图”渲染引擎，以便通过将数据插入模板来生成响应</li>
+<li>设置常见 web 应用设置，比如用于连接的端口，以及渲染响应模板的位置</li>
+<li>在请求处理管道的任何位置添加额外的请求处理”中间件”<br>虽然 Express 本身是极简风格的，但是开发人员通过创建各类兼容的中间件包解决了几乎所有的 web 开发问题。这些库可以实现 cookie、会话、用户登录、URL 参数、POST 数据、安全头等功能。可在 Express 中间件 网页中找到由 Express 团队维护的中间件软件包列表（还有一张流行的第三方软件包列表）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&apos;express&apos;);</span><br><span class="line">const app = express();</span><br><span class="line"></span><br><span class="line">app.get(&apos;/&apos;, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(&apos;Hello World!&apos;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000, () =&gt; &#123;</span><br><span class="line">  console.log(&apos;示例应用正在监听 3000 端口!&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>前两行通过 require() 导入 Express 模块，并创建了一个 Express 应用。传统上把这个对象命名为 app，它可以进行路由 HTTP 请求、配置中间件、渲染 HTML 视图、注册模板引擎以及修改 应用程序设置 等操作，从而控制应用的行为（例如，环境模式，路由定义是否为区分大小写等）。<br>代码的中间部分（从 app.get() 开始共三行）是路由定义。app.get() 方法指定了一个回调（callback）函数，该函数在每监听到一个关于站点根目录路径（’/‘）的 HTTP GET 请求时调用。此回调函数以一个请求和一个响应对象作为参数，并直接调用响应的 send() 来返回字符串“Hello World!”<br>最后一个代码块在”3000” 端口上启动服务器，并在控制台打印日志。服务器运行时，可用浏览器访问 localhost:3000，看看响应返回了什么。</p>
+<h2 id="导入和创建模块"><a href="#导入和创建模块" class="headerlink" title="导入和创建模块"></a>导入和创建模块</h2><p>模块是 JavaScript 库或文件，可以用 Node 的 require() 函数将它们导入其它代码。Express 本身就是一个模块，Express 应用中使用的中间件和数据库也是<br>下面的代码以 Express 框架为例展示了如何通过名字来导入模块,调用 require() 函数，用字符串（’express’）指定模块的名字，然后调用返回的对象来创建Express 应用 。然后就可以访问应用对象的属性和函数了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&apos;express&apos;);</span><br><span class="line">const app = express();</span><br></pre></td></tr></table></figure>
+
+<p>还可以创建自定义模块，并用相同的方法导入 为了让对象暴露于模块之外，只需把它们设置为 exports 对象的附加属性即可。 下面的 square.js 模块就是一个导出了 area() 和 perimeter() 方法的文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exports.area = width =&gt; &#123; return width * width; &#125;;</span><br><span class="line">exports.perimeter = width =&gt; &#123; return 4 * width; &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>可以require()导入这个模块，然后调用导出的方法，用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const square = require(&apos;./square&apos;);</span><br><span class="line">// 这里 require() 了文件名，省略了 .js 扩展名（可选）</span><br><span class="line">console.log(&apos;正方形面积为 &apos; + square.area(4));</span><br></pre></td></tr></table></figure>
+
+<p>一次赋值不仅能构建一个单一的属性，还能构建一个完整的对象 可以像下面这样把对象赋值给 module.exports（也可以让 exports 对象直接作为一个构造器或另一个函数）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">area: width =&gt; &#123; return width * width; &#125;,</span><br><span class="line">perimeter: width =&gt; &#123; return 4 * width; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript 代码在完成那些需要一段时间才能完成的操作时，经常会用异步API来取代同步API。同步 API 下 每个操作完成后才可以进行下一个操作。下列日志函数是同步的，将按顺序将文本打印到控制台（第一、第二）</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    yixuan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://geekes.github.io/2019/10/14/Nodejs入门教程/" title="Node.js入门教程">https://geekes.github.io/2019/10/14/Nodejs入门教程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+  <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node-js/" rel="tag"># Node.js</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/14/Python入门教程/" rel="next" title="Python入门教程">
+                <i class="fa fa-chevron-left"></i> Python入门教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/15/小程序入门教程/" rel="prev" title="小程序入门教程">
+                小程序入门教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NjU3MC8yMzA4MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="yixuan">
+            
+              <p class="site-author-name" itemprop="name">yixuan</p>
+              <p class="site-description motion-element" itemprop="description">极客教程 geekes's Blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/geekes" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhangyuxuan9694@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/okjike" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://how2j.cn/" title="how2j的java教程" target="_blank">how2j的java教程</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyandong.com/" title="绿帽子大学" target="_blank">绿帽子大学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wanandroid.com/" title="wanandroid" target="_blank">wanandroid</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+<link rel="stylesheet" href="./dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="./dist/APlayer.min.js"></script>
+<script src="./dist/music.js"></script>
+
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node安装"><span class="nav-number">2.</span> <span class="nav-text">Node安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows安装"><span class="nav-number">2.1.</span> <span class="nav-text">windows安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NPM使用与安装"><span class="nav-number">3.</span> <span class="nav-text">NPM使用与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-命令来升级，命令如下："><span class="nav-number">3.1.</span> <span class="nav-text">npm 命令来升级，命令如下：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-npm-命令安装模块"><span class="nav-number">3.2.</span> <span class="nav-text">使用 npm 命令安装模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装与本地安装"><span class="nav-number">3.3.</span> <span class="nav-text">全局安装与本地安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地安装"><span class="nav-number">3.4.</span> <span class="nav-text">本地安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局安装"><span class="nav-number">3.5.</span> <span class="nav-text">全局安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看安装信息"><span class="nav-number">3.6.</span> <span class="nav-text">查看安装信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#某个模块的版本号，可以使用命令如下："><span class="nav-number">3.7.</span> <span class="nav-text">某个模块的版本号，可以使用命令如下：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json"><span class="nav-number">3.8.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载模块"><span class="nav-number">3.9.</span> <span class="nav-text">卸载模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新模块"><span class="nav-number">3.10.</span> <span class="nav-text">更新模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索模块"><span class="nav-number">3.11.</span> <span class="nav-text">搜索模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建模块"><span class="nav-number">3.12.</span> <span class="nav-text">创建模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#淘宝-NPM-镜像"><span class="nav-number">3.13.</span> <span class="nav-text">淘宝 NPM 镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装模块"><span class="nav-number">3.14.</span> <span class="nav-text">安装模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步模块"><span class="nav-number">3.15.</span> <span class="nav-text">同步模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它命令"><span class="nav-number">3.16.</span> <span class="nav-text">其它命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局变量"><span class="nav-number">4.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定时器"><span class="nav-number">5.</span> <span class="nav-text">定时器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件处理"><span class="nav-number">6.</span> <span class="nav-text">文件处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Path模块"><span class="nav-number">7.</span> <span class="nav-text">Path模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows与POSIX"><span class="nav-number">7.1.</span> <span class="nav-text">Windows与POSIX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可移植操作系统接口-POSIX"><span class="nav-number">7.2.</span> <span class="nav-text">可移植操作系统接口(POSIX)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录结构的区别"><span class="nav-number">7.3.</span> <span class="nav-text">目录结构的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径的区别"><span class="nav-number">7.4.</span> <span class="nav-text">路径的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OS模块"><span class="nav-number">8.</span> <span class="nav-text">OS模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Net网络模块"><span class="nav-number">9.</span> <span class="nav-text">Net网络模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件处理-1"><span class="nav-number">10.</span> <span class="nav-text">文件处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP模块"><span class="nav-number">11.</span> <span class="nav-text">HTTP模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件处理"><span class="nav-number">12.</span> <span class="nav-text">事件处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是-Express"><span class="nav-number">13.</span> <span class="nav-text">什么是 Express?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入和创建模块"><span class="nav-number">13.1.</span> <span class="nav-text">导入和创建模块</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="aplayer" data-id="484056997" data-server="netease" data-type="song" data-autoplay="true"></div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+
+ <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <span class="author" itemprop="copyrightHolder">yixuan</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">全站字数:</span>
+    
+    <span title="Site words total count">74.7k</span>
+  
+</div>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/01/2019 12:49:00"); 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

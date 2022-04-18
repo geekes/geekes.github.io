@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="HTML,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="极客教程" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="HTMLHTML (HyperText Markup Language) 不是一门编程语言,而是一种用来告知浏览器如何组织页面的标记语言,主要构成网页组成的结构 1&amp;lt;!DOCTYPE html&amp;gt;  声明文档类型,规定了HTML页面必须遵从的良好规则,能自动检测错误和其他有用的东西 1&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;  这个元素设置文档使用ut">
+<meta name="keywords" content="HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML入门指南">
+<meta property="og:url" content="https://geekes.github.io/2019/09/17/HTML入门指南/index.html">
+<meta property="og:site_name" content="极客教程">
+<meta property="og:description" content="HTMLHTML (HyperText Markup Language) 不是一门编程语言,而是一种用来告知浏览器如何组织页面的标记语言,主要构成网页组成的结构 1&amp;lt;!DOCTYPE html&amp;gt;  声明文档类型,规定了HTML页面必须遵从的良好规则,能自动检测错误和其他有用的东西 1&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;  这个元素设置文档使用ut">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-10T11:51:12.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML入门指南">
+<meta name="twitter:description" content="HTMLHTML (HyperText Markup Language) 不是一门编程语言,而是一种用来告知浏览器如何组织页面的标记语言,主要构成网页组成的结构 1&amp;lt;!DOCTYPE html&amp;gt;  声明文档类型,规定了HTML页面必须遵从的良好规则,能自动检测错误和其他有用的东西 1&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;  这个元素设置文档使用ut">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://geekes.github.io/2019/09/17/HTML入门指南/">
+
+
+
+
+
+  <title>HTML入门指南 | 极客教程</title>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">极客教程</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">geekes's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+
+
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://geekes.github.io/2019/09/17/HTML入门指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yixuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极客教程">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML入门指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T01:11:29+08:00">
+                2019-09-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-02-10T19:51:12+08:00">
+                2020-02-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>HTML (HyperText Markup Language) 不是一门编程语言,而是一种用来告知浏览器如何组织页面的标记语言,主要构成网页组成的结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>声明文档类型,规定了HTML页面必须遵从的良好规则,能自动检测错误和其他有用的东西</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个元素设置文档使用utf-8字符集编码,utf-8字符集包含了人类大部分的文字。基本上他能识别你放上去的所有文本内</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个元素包裹了整个完整的页面,是一个根元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个元素是一个容器,它包含了所有你想包含在HTML页面中但不想在HTML页面中显示的内容。这些内容包括你想在搜索结果中出现的关键字和页面描述,CSS样式，字符集声明等等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title&gt;&lt;/title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>设置页面标题，出现在浏览器标签上,当你标记/收藏页面时它可用来描述页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<p>包含了你访问页面时所有显示在页面上的内容,文本,图片,音频等等</p>
+<h1 id="常用标签"><a href="#常用标签" class="headerlink" title="常用标签"></a>常用标签</h1><p>标签可以拥有多个属性;属性之间不分先后顺序;省略该属性则取默认值</p>
+<h1 id="标题标签头"><a href="#标题标签头" class="headerlink" title="标题标签头"></a>标题标签头</h1><p>[区标题，文档标题，网页名称]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HTML提供了6个等级的标题,即&lt;h1&gt;、&lt;h2&gt;、&lt;h3&gt;、&lt;h4&gt;、&lt;h5&gt;、&lt;h6&gt;</span><br></pre></td></tr></table></figure>
+
+<p>[标题标签语义：作为标题使用，并且依据重要性递减]</p>
+<h1 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h1><p> 默认情况下，文本在一个段落中会根据浏览器窗口的大小自动换行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;文本内容&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;main&gt;</span><br><span class="line">存放每个页面独有的内容,每个页面上只能用一次&lt;main&gt;,且直接位于&lt;body&gt;中,最好不要把它嵌套进其它元素</span><br><span class="line">&lt;article&gt;</span><br><span class="line">包围的内容即一篇文章，与页面其它部分无关（比如一篇博文）</span><br><span class="line">&lt;section&gt;</span><br><span class="line">与&lt;article&gt; 类似，但 &lt;section&gt; 更适用于组织页面使其按功能（比如迷你地图、一组文章标题和摘要）分块。一般的最佳用法是：以 标题 作为开头；也可以把一篇 &lt;article&gt; 分成若干部分并分别置于不同的 &lt;section&gt; 中，也可以把一个区段 &lt;section&gt;分成若干部分并分别置于不同的 &lt;article&gt; 中，取决于上下文</span><br><span class="line">&lt;aside&gt;</span><br><span class="line">包含一些间接信息（术语条目、作者简介、相关链接等等）</span><br><span class="line">&lt;header&gt;</span><br><span class="line">是简介形式的内容。如果它是 &lt;body&gt; 的子元素，那么就是网站的全局页眉。如果它是&lt;article&gt;或&lt;section&gt; 的子元素，那么它是这些部分特有的页眉（此&lt;header&gt; 非彼标题）</span><br><span class="line">&lt;nav&gt;</span><br><span class="line">包含页面主导航功能。其中不应包含二级链接等内容</span><br><span class="line">&lt;footer&gt;</span><br><span class="line">包含了页面的页脚部分</span><br></pre></td></tr></table></figure>
+
+<h1 id="frameset"><a href="#frameset" class="headerlink" title="frameset"></a>frameset</h1><p>框架的集合标签<br>属性有：<br>rows：按照上下排列框架内容<br>cols：按照左右排列框架内容<br>取值可以是像素px，可以是百分比,还可以是*<br>frameset和body只能出现一个<br>frame：表示框架集合中的框架<br>属性有:<br>noresize:它是一个内置属性,其本身就是一个值,当写上之后表示不能重置大小<br>scrolling:是否使用滚动条。默认是auto<br>frameset可以嵌套使用</p>
+<h1 id="水平线标签"><a href="#水平线标签" class="headerlink" title="水平线标签"></a>水平线标签</h1><p>  横跨网页水平线的标签。<br>  水平线将段落与段落之间隔开，使得文档结构清晰，层次分明。<br>  这些水平线可以通过插入图片实现，也可以简单地通过标签来完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;hr/&gt;单标签</span><br></pre></td></tr></table></figure>
+
+<h1 id="换行标签"><a href="#换行标签" class="headerlink" title="换行标签"></a>换行标签</h1><p>  一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后自动换行<br>  如果希望某段文本强制换行显示，就需要使用换行标签。<br>  【和段落标签的区别：段落标签在网页显示的时候两个段落之间的间隔比较大，要调节的话要用CSS调节，换行标签的两个内容是紧挨着的】</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;br/&gt;单标签</span><br></pre></td></tr></table></figure>
+
+<h1 id="div-span标签"><a href="#div-span标签" class="headerlink" title="div span标签"></a>div span标签</h1><p>  是没有语义的区别：div会独占一行，而span不会独占一行<br>iv是一个容器级的标签，而span是一个文本级的标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;这是头部&lt;div&gt; [类似回车]</span><br><span class="line">&lt;span&gt;今日价格&lt;span&gt; [类似空格]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;blockquote&gt;</span><br></pre></td></tr></table></figure>
+
+<p>表示块引用,并且在cite属性里用URL来指向引用的资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;q&gt;</span><br></pre></td></tr></table></figure>
+
+<p>表示行内引用,并且在cite属性里用URL来指向引用的资源<br>cite<br>属性内容不会被浏览器显示、屏幕阅读器阅读,需使用JavaScript或CSS,浏览器才会显示cite的内容,如果你想要确保引用的来源在页面上是可显示的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;abbr&gt;</span><br></pre></td></tr></table></figure>
+
+<p>常被用来包裹一个缩略语或缩写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;address&gt;</span><br></pre></td></tr></table></figure>
+
+<p>用于标记联系方式的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;sup&gt;、&lt;sub&gt;</span><br></pre></td></tr></table></figure>
+
+<p>元素可表示上标和下标</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;code&gt;</span><br></pre></td></tr></table></figure>
+
+<p>用于标记计算机通用代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对保留的空格（通常是代码块）——如果您在文本中使用缩进或多余的空白，浏览器将忽略它，您将不会在呈现的页面上看到它,但是，如果您将文本包含在&lt;pre&gt;&lt;/pre&gt;,标签中，那么空白将会以与你在文本编辑器中看到的相同的方式渲染出来</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;var&gt;</span><br><span class="line">用于标记具体变量名</span><br><span class="line">&lt;kbd&gt;</span><br><span class="line">用于标记输入电脑的键盘（或其他类型）输入</span><br><span class="line">&lt;samp&gt;</span><br><span class="line">用于标记计算机程序的输出</span><br></pre></td></tr></table></figure>
+
+<h1 id="文本格式标签-b、i、s、u"><a href="#文本格式标签-b、i、s、u" class="headerlink" title="文本格式标签:b、i、s、u"></a>文本格式标签:b、i、s、u</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;加粗&lt;/b&gt;、&lt;i&gt;倾斜&lt;/i&gt;、&lt;s&gt;删除线&lt;/s&gt;、&lt;u&gt;下划线&lt;/u&gt;只有使用,没有强调的意思,strong、em、del、ins 语义更强烈</span><br></pre></td></tr></table></figure>
+
+<h1 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（空格＆nbsp、大于号＆gt、小于号＆lt、冒号&amp;quot、单引号&amp;apos、&amp; &amp;amp</span><br><span class="line">、版权号&amp;copy、</span><br><span class="line">商标&amp;trade、 注释标签&lt;！ -   - &gt;</span><br></pre></td></tr></table></figure>
+
+<p>src路径、alt图像不能显示时的替换文本、title鼠标悬停时的内容、width/height宽高、border边框宽度</p>
+<h1 id="链接标签"><a href="#链接标签" class="headerlink" title="链接标签"></a>链接标签</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href target&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="href-地址"><a href="#href-地址" class="headerlink" title="href=地址"></a>href=地址</h1><p>用于指定链接目标的url地址,当为标签应用href属性时,就有了超链接的功能</p>
+<p> #空链接,外部链接,内部链接,链接网页中的各种元素</p>
+<h1 id="target-页面打开方式-self和-blank"><a href="#target-页面打开方式-self和-blank" class="headerlink" title="target=页面打开方式_self和_blank"></a>target=页面打开方式_self和_blank</h1><p> 用于指定链接页面的打开方式,其取值有_self和_blank两种,其中_self为默认值，_blank为在新窗口中打开方式</p>
+<h1 id="锚点定位"><a href="#锚点定位" class="headerlink" title="锚点定位"></a>锚点定位</h1><p>  步骤1：使用<a href="#id">链接文本</a><br>  步骤2：使用相应id名标注要跳转的目标</p>
+<h1 id="base标签：可以设置整体链接的打开状态"><a href="#base标签：可以设置整体链接的打开状态" class="headerlink" title="base标签：可以设置整体链接的打开状态"></a>base标签：可以设置整体链接的打开状态</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;base target=&apos;_blank&apos;&gt;把所有链接都设置成在新窗口中打开</span><br></pre></td></tr></table></figure>
+
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><h1 id="列表-ul、ol"><a href="#列表-ul、ol" class="headerlink" title="列表 ul、ol"></a>列表 ul、ol</h1><h1 id="无序列表-ul-gt-li"><a href="#无序列表-ul-gt-li" class="headerlink" title="无序列表 ul&gt;li"></a>无序列表 ul&gt;li</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;&lt;/ul&gt;中只能嵌套&lt;li&gt;&lt;/li&gt;，直接在&lt;ul&gt;&lt;/ul&gt;标签中输入其他标签或者文字的做法是不被允许的,可以在&lt;li&gt;&lt;/li&gt;标签中输入其他标签</span><br><span class="line">&lt;li&gt;&lt;/ li&gt;之间相当于一个容器，可以容纳所有元素 </span><br><span class="line">无序列表会带有自己样式属性</span><br></pre></td></tr></table></figure>
+
+<h1 id="有序列表-ol-gt-li"><a href="#有序列表-ol-gt-li" class="headerlink" title="有序列表 ol&gt;li"></a>有序列表 ol&gt;li</h1><p>  有序列表会自动生成序号。</p>
+<h1 id="自定义列表dl-gt-dt行-gt-dd单元格-列"><a href="#自定义列表dl-gt-dt行-gt-dd单元格-列" class="headerlink" title="自定义列表dl&gt;dt行&gt;dd单元格/列"></a>自定义列表dl&gt;dt行&gt;dd单元格/列</h1><p>  自定义列表常用于对术语或名词进行解释和描述，列表项前没有任何项目符号</p>
+<h1 id="表格table-gt-tr行-gt-td单元格-列"><a href="#表格table-gt-tr行-gt-td单元格-列" class="headerlink" title="表格table&gt;tr行&gt;td单元格/列"></a>表格table&gt;tr行&gt;td单元格/列</h1><pre><code>&lt;tr&gt;&lt;/tr&gt;中只能嵌套&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;标签,可以容纳所有的元素</code></pre><h1 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h1><p>  border cellspadding cellspacing三参为0<br>  (不带单位，默认像素)<br>  border(边框)、<br>  cellspacing(单元格与边框之间)、<br>  cellspading(单元格内容与边框之间)、<br>  width(宽)、height(高)、<br>  align(水平对齐方式)(一般默认left)<br>  align放在table(表格在页面居中)、tr(本行所有单元格内容居中)、td(本行内容居中)有不同效果；一般不写在html,会用css来调整样式。</p>
+<h1 id="表头标签th：文本加粗、居中"><a href="#表头标签th：文本加粗、居中" class="headerlink" title="表头标签th：文本加粗、居中"></a>表头标签th：文本加粗、居中</h1><p>  用表头标签<th></th>替代相应的单元格标签<td></td>即可</p>
+<h1 id="表格标题：caption"><a href="#表格标题：caption" class="headerlink" title="表格标题：caption"></a>表格标题：caption</h1><p>  必须紧随 table 标签之后<br>  只存在表格里面<br>  只能对每个表格定义一个标题<br>  通常这个标题会被居中于表格之上</p>
+<h1 id="表格结构thead、tbody"><a href="#表格结构thead、tbody" class="headerlink" title="表格结构thead、tbody"></a>表格结构thead、tbody</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;thead&gt;&lt;/thead&gt;：用于定义表格的头部</span><br><span class="line">必须位于&lt;table&gt;&lt;/table&gt; 标签中，一般包含网页的logo和导航等头部信息</span><br><span class="line">&lt;tbody&gt;&lt;/tbody&gt;：用于定义表格的主体</span><br><span class="line">位于&lt;table&gt;&lt;/table&gt;标签中，一般包含网页中除头部和底部之外的其他内容</span><br></pre></td></tr></table></figure>
+
+<h1 id="合并单元格"><a href="#合并单元格" class="headerlink" title="合并单元格"></a>合并单元格</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;td rowspan=&apos;3&apos;/colspan=&apos;4&apos;&gt;&lt;/td&gt;</span><br></pre></td></tr></table></figure>
+
+<p>公式：删除的个数 = 合并的个数 - 1</p>
+<h1 id="跨行合并-rowspan"><a href="#跨行合并-rowspan" class="headerlink" title="跨行合并 rowspan"></a>跨行合并 rowspan</h1><h1 id="跨列合并-colspan"><a href="#跨列合并-colspan" class="headerlink" title="跨列合并 colspan"></a>跨列合并 colspan</h1><h1 id="合并的顺序：先上后下，先左后右"><a href="#合并的顺序：先上后下，先左后右" class="headerlink" title="合并的顺序：先上后下，先左后右"></a>合并的顺序：先上后下，先左后右</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">先确定是跨行还是跨列合并？</span><br><span class="line">根据先上后下，先左后右的原则找到目标单元格；</span><br><span class="line">删除单元格；</span><br></pre></td></tr></table></figure>
+
+<h1 id="表单标签-控件"><a href="#表单标签-控件" class="headerlink" title="表单标签/控件"></a>表单标签/控件</h1><p>表单目的是为了收集用户信息<br>在HTML中，一个完整的表单通常由表单控件（也称表单元素）、提示信息和表单域3个部分构成<br>表单控件：​包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等<br>提示信息：​一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作<br>表单域：​他相当于一个容器，用来容纳所有的表单控件和提示信息，可以通过他定义处理表单数据所用程序的url地址，以及数据提交到服务器的方法<br>如果不定义表单域，表单中的数据就无法传送到后台服务器</p>
+<h1 id="input"><a href="#input" class="headerlink" title="input"></a>input</h1><p>   type属性：指定不同控件的类型<br>   text：单行文本输入框<br>   password：密码输入框<br>   radio：单选按钮；如果是一组，则一定要命名相同的name<br>   checkbox：复选框；有无相同的name不影响选择<br>   button：普通按钮<br>   reset：重置按钮<br>   submit：提交按钮<br>   image：图像形式的提交按钮<br>   file：文件域，选择文件上传<br>name 控件的名称、value 控件的默认文本值<br>size:正整数，控件在页面中的显示宽度、maxlength:正整数，允许输入的最多字符数<br>checked：定义控件默认被选中的项<br>label标签：获得焦点(有for属性)<br>作用：用于绑定表单元素,当点击label标签时,被绑定的表单元素就会获得输入焦点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;label&gt;用户名：&lt;input type=&apos;text&apos;&gt;&lt;/label&gt;</span><br></pre></td></tr></table></figure>
+
+<p>点击用户名也可以进入后面输入框<br>当label标签中包含两个及以上的输入框时,用for属性规定label与哪个表单元素绑定<br>  <label for="‘id名称’"></label></p>
+<h1 id="textarea-文本域"><a href="#textarea-文本域" class="headerlink" title="textarea(文本域)"></a>textarea(文本域)</h1><p>text文本框只能写一行<br>有cols=’每行中的字符数’；rows=’显示的行数’ 属性，但是一般不用，用css来改动</p>
+<h1 id="select-gt-option下拉菜单"><a href="#select-gt-option下拉菜单" class="headerlink" title="select&gt;option下拉菜单"></a>select&gt;option下拉菜单</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;select&gt;&lt;/select&gt;中至少应包含一对&lt;option&gt;&lt;/option&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在option 中定义selected =” selected “时，当前项即为默认选中项</p>
+<h1 id="form表单域action、method、name"><a href="#form表单域action、method、name" class="headerlink" title="form表单域action、method、name"></a>form表单域action、method、name</h1><p>action属性用于指定接收并处理表单数据的服务器程序的url地址。<br>method 设置表单数据的提交方式，get/post,post和get不同，是匿名提交的。<br>name 用于指定表单的名称,以区分同一个页面中的多个表单</p>
+<h1 id="WEB标准"><a href="#WEB标准" class="headerlink" title="WEB标准"></a>WEB标准</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">结构（Structure)：html语言：XHTML[可扩展超文本标识语言]和XML[可扩展标记语言]</span><br><span class="line">表现（Preasentation）:css</span><br><span class="line">行为（Behavior）：JS[DOM+ES]</span><br></pre></td></tr></table></figure>
+
+<p>其中一些小的具体要求：<br>结构：标签小写、闭合、不能随意嵌套<br>CSS+JS：精良使用外链，不用行内<br>优点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">易于维护</span><br><span class="line">页面响应快</span><br><span class="line">可访问性高</span><br><span class="line">提高设备兼容性</span><br><span class="line">易被解析（搜索引擎）</span><br></pre></td></tr></table></figure>
+
+<h1 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; - IE：Trident内核(多称：IE内核)</span><br><span class="line">&gt; - Chrome：Webkit内核 ==&gt;  Blink内核</span><br><span class="line">&gt; - Firefox：Gecko内核(多称：IE内核)</span><br><span class="line">&gt; - Safari：Webkit内核</span><br><span class="line">&gt; - Opear：Preato====&gt;Webkit内核  ====&gt;  Blink内核</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    yixuan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://geekes.github.io/2019/09/17/HTML入门指南/" title="HTML入门指南">https://geekes.github.io/2019/09/17/HTML入门指南/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+  <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/17/Vue生命周期/" rel="next" title="Vue生命周期">
+                <i class="fa fa-chevron-left"></i> Vue生命周期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/18/使用vue-cli-axios配置跨域代理访问数据/" rel="prev" title="使用vue-cli axios配置跨域代理访问数据">
+                使用vue-cli axios配置跨域代理访问数据 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NjU3MC8yMzA4MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="yixuan">
+            
+              <p class="site-author-name" itemprop="name">yixuan</p>
+              <p class="site-description motion-element" itemprop="description">极客教程 geekes's Blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/geekes" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhangyuxuan9694@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/okjike" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://how2j.cn/" title="how2j的java教程" target="_blank">how2j的java教程</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyandong.com/" title="绿帽子大学" target="_blank">绿帽子大学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wanandroid.com/" title="wanandroid" target="_blank">wanandroid</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+<link rel="stylesheet" href="./dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="./dist/APlayer.min.js"></script>
+<script src="./dist/music.js"></script>
+
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用标签"><span class="nav-number">2.</span> <span class="nav-text">常用标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标题标签头"><span class="nav-number">3.</span> <span class="nav-text">标题标签头</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#段落标签"><span class="nav-number">4.</span> <span class="nav-text">段落标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#frameset"><span class="nav-number">5.</span> <span class="nav-text">frameset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#水平线标签"><span class="nav-number">6.</span> <span class="nav-text">水平线标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#换行标签"><span class="nav-number">7.</span> <span class="nav-text">换行标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#div-span标签"><span class="nav-number">8.</span> <span class="nav-text">div span标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本格式标签-b、i、s、u"><span class="nav-number">9.</span> <span class="nav-text">文本格式标签:b、i、s、u</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特殊字符"><span class="nav-number">10.</span> <span class="nav-text">特殊字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#链接标签"><span class="nav-number">11.</span> <span class="nav-text">链接标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#href-地址"><span class="nav-number">12.</span> <span class="nav-text">href=地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#target-页面打开方式-self和-blank"><span class="nav-number">13.</span> <span class="nav-text">target=页面打开方式_self和_blank</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#锚点定位"><span class="nav-number">14.</span> <span class="nav-text">锚点定位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#base标签：可以设置整体链接的打开状态"><span class="nav-number">15.</span> <span class="nav-text">base标签：可以设置整体链接的打开状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格"><span class="nav-number">16.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表-ul、ol"><span class="nav-number">17.</span> <span class="nav-text">列表 ul、ol</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无序列表-ul-gt-li"><span class="nav-number">18.</span> <span class="nav-text">无序列表 ul&gt;li</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有序列表-ol-gt-li"><span class="nav-number">19.</span> <span class="nav-text">有序列表 ol&gt;li</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义列表dl-gt-dt行-gt-dd单元格-列"><span class="nav-number">20.</span> <span class="nav-text">自定义列表dl&gt;dt行&gt;dd单元格/列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格table-gt-tr行-gt-td单元格-列"><span class="nav-number">21.</span> <span class="nav-text">表格table&gt;tr行&gt;td单元格/列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格属性"><span class="nav-number">22.</span> <span class="nav-text">表格属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表头标签th：文本加粗、居中"><span class="nav-number">23.</span> <span class="nav-text">表头标签th：文本加粗、居中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格标题：caption"><span class="nav-number">24.</span> <span class="nav-text">表格标题：caption</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格结构thead、tbody"><span class="nav-number">25.</span> <span class="nav-text">表格结构thead、tbody</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并单元格"><span class="nav-number">26.</span> <span class="nav-text">合并单元格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨行合并-rowspan"><span class="nav-number">27.</span> <span class="nav-text">跨行合并 rowspan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跨列合并-colspan"><span class="nav-number">28.</span> <span class="nav-text">跨列合并 colspan</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并的顺序：先上后下，先左后右"><span class="nav-number">29.</span> <span class="nav-text">合并的顺序：先上后下，先左后右</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表单标签-控件"><span class="nav-number">30.</span> <span class="nav-text">表单标签/控件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#input"><span class="nav-number">31.</span> <span class="nav-text">input</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#textarea-文本域"><span class="nav-number">32.</span> <span class="nav-text">textarea(文本域)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#select-gt-option下拉菜单"><span class="nav-number">33.</span> <span class="nav-text">select&gt;option下拉菜单</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#form表单域action、method、name"><span class="nav-number">34.</span> <span class="nav-text">form表单域action、method、name</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WEB标准"><span class="nav-number">35.</span> <span class="nav-text">WEB标准</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器内核"><span class="nav-number">36.</span> <span class="nav-text">浏览器内核</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="aplayer" data-id="484056997" data-server="netease" data-type="song" data-autoplay="true"></div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+
+ <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <span class="author" itemprop="copyrightHolder">yixuan</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">全站字数:</span>
+    
+    <span title="Site words total count">74.7k</span>
+  
+</div>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/01/2019 12:49:00"); 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

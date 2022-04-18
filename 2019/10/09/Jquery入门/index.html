@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Jquery,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="极客教程" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="什么是jQuery？jQuery是一个JavaScript函数库Query是一个javascript的框架,是对javascript的一种封装jQuery是一个轻量级的”写的少,做的多”的JavaScript库 jQuery库包含以下功能： HTML元素选取 HTML元素操作 CSS操作 HTML 事件函数 JavaScript特效和动画 HTML DOM遍历和修改 AJAX Utilities提">
+<meta name="keywords" content="Jquery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jquery入门">
+<meta property="og:url" content="https://geekes.github.io/2019/10/09/Jquery入门/index.html">
+<meta property="og:site_name" content="极客教程">
+<meta property="og:description" content="什么是jQuery？jQuery是一个JavaScript函数库Query是一个javascript的框架,是对javascript的一种封装jQuery是一个轻量级的”写的少,做的多”的JavaScript库 jQuery库包含以下功能： HTML元素选取 HTML元素操作 CSS操作 HTML 事件函数 JavaScript特效和动画 HTML DOM遍历和修改 AJAX Utilities提">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-06T10:15:40.335Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jquery入门">
+<meta name="twitter:description" content="什么是jQuery？jQuery是一个JavaScript函数库Query是一个javascript的框架,是对javascript的一种封装jQuery是一个轻量级的”写的少,做的多”的JavaScript库 jQuery库包含以下功能： HTML元素选取 HTML元素操作 CSS操作 HTML 事件函数 JavaScript特效和动画 HTML DOM遍历和修改 AJAX Utilities提">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://geekes.github.io/2019/10/09/Jquery入门/">
+
+
+
+
+
+  <title>Jquery入门 | 极客教程</title>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</head>
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">极客教程</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">geekes's Blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+
+
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://geekes.github.io/2019/10/09/Jquery入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yixuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极客教程">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Jquery入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T09:13:18+08:00">
+                2019-10-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-06T18:15:40+08:00">
+                2020-03-06
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">Jquery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye">阅读次数</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  12.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  64
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="什么是jQuery？"><a href="#什么是jQuery？" class="headerlink" title="什么是jQuery？"></a>什么是jQuery？</h1><p>jQuery是一个JavaScript函数库<br>Query是一个javascript的框架,是对javascript的一种封装<br>jQuery是一个轻量级的”写的少,做的多”的JavaScript库</p>
+<h1 id="jQuery库包含以下功能："><a href="#jQuery库包含以下功能：" class="headerlink" title="jQuery库包含以下功能："></a>jQuery库包含以下功能：</h1><ul>
+<li>HTML元素选取</li>
+<li>HTML元素操作</li>
+<li>CSS操作</li>
+<li>HTML 事件函数</li>
+<li>JavaScript特效和动画</li>
+<li>HTML DOM遍历和修改</li>
+<li>AJAX</li>
+<li>Utilities<br>提示:除此之外,Jquery还提供了大量的插件<br>网页中添加jQuery<br>可以通过多种方法在网页中添加jQuery,您可以使用以下方法：</li>
+</ul>
+<p>从jquery.com下载jQuery库<br>从CDN中载入jQuery,如从Google中加载jQuery<br>以上两个版本都可以从jquery.com中下载<br>要使用Jquery需要导入一个第三方的javascript库jquery.min.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Staticfile CDN、百度、又拍云、新浪、谷歌和微软的服务器都存有jQuery<br>如果你的站点用户是国内的，建议使用百度、又拍云、新浪等国内CDN地址,如果你站点用户是国外的可以使用谷歌和微软<br>如需从Staticfile CDN、又拍云、新浪、谷歌或微软引用jQuery,请使用以下代码之一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script  src=&quot;https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js&quot;&gt;</span><br><span class="line">&lt;script src=&quot;https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js&quot;&gt;</span><br><span class="line">&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;</span><br><span class="line">&lt;script src=&quot;https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="jQuery语法"><a href="#jQuery语法" class="headerlink" title="jQuery语法"></a>jQuery语法</h1><p>jQuery语法是为HTML元素的选取编制的,可以对元素执行某些操作</p>
+<h2 id="基础语法-selector-action"><a href="#基础语法-selector-action" class="headerlink" title="基础语法:$(selector).action()"></a>基础语法:$(selector).action()</h2><ul>
+<li>美元符号定义jQuery</li>
+<li>选择符（selector）”查询”和”查找” HTML 元素</li>
+<li>jQuery的action()执行对元素的操作</li>
+</ul>
+<h2 id="文档就绪事件"><a href="#文档就绪事件" class="headerlink" title="文档就绪事件"></a>文档就绪事件</h2><p>实例中的jQuery函数位于一个document ready函数中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//理解 $(function()&#123;&#125;)由两部分组成</span><br><span class="line">// </span><br><span class="line">$();</span><br><span class="line"></span><br><span class="line">function()&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//合并之后 </span><br><span class="line">$(function()&#123;</span><br><span class="line">// 执行代码</span><br><span class="line">&#125;);</span><br><span class="line">另一种写法:</span><br><span class="line">//理解 $(document).ready(function()&#123;&#125;)由两部分组成</span><br><span class="line"></span><br><span class="line">$(document).ready();</span><br><span class="line"></span><br><span class="line">function()&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//合并之后 </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">// 执行代码</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>这是为了防止文档在完全加载（就绪）之前运行jQuery代码,即在 DOM 加载完成后才可以对DOM进行操作</p>
+<h2 id="如果在文档没有完全加载之前就运行函数-操作可能失败"><a href="#如果在文档没有完全加载之前就运行函数-操作可能失败" class="headerlink" title="如果在文档没有完全加载之前就运行函数,操作可能失败"></a>如果在文档没有完全加载之前就运行函数,操作可能失败</h2><ul>
+<li>试图隐藏一个不存在的元素</li>
+<li>获得未完全加载的图像的大小</li>
+</ul>
+<h1 id="jQuery选择器"><a href="#jQuery选择器" class="headerlink" title="jQuery选择器"></a>jQuery选择器</h1><p>jQuery选择器允许您对 HTML 元素组或单个元素进行操作<br>jQuery选择器基于元素的 id、类、类型、属性、属性值等”查找”（或选择）HTML元素<br>jQuery中所有选择器都以美元符号开头：$()</p>
+<h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><p>根据标签名选择所有该标签的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//第一种写法</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;p&quot;).css(&quot;background-color&quot;,&quot;red&quot;);</span><br><span class="line">   $(&quot;div&quot;).css(&quot;background-color&quot;,&quot;red&quot;);</span><br><span class="line">   $(&quot;h4&quot;).css(&quot;background-color&quot;,&quot;red&quot;);</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;p&gt;极客教程&lt;/p&gt;</span><br><span class="line">&lt;div&gt;极客的学习教程&lt;/div&gt;</span><br><span class="line">&lt;h4&gt;https:geekes.cn&lt;/h4&gt;</span><br><span class="line">&lt;button type=&quot;button&quot;&gt;点击&lt;/button&gt;</span><br><span class="line">//第二种写法</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line"> $(&quot;#b&quot;).click(function()&#123;</span><br><span class="line">  $(&quot;div&quot;).addClass(&quot;red&quot;);</span><br><span class="line">  $(&quot;p&quot;).addClass(&quot;red&quot;);</span><br><span class="line">  $(&quot;h4&quot;).addClass(&quot;red&quot;);</span><br><span class="line">&#125;);</span><br><span class="line"> &#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line"> .red&#123;</span><br><span class="line">background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;p&gt;极客教程&lt;/p&gt;</span><br><span class="line">&lt;div&gt;极客的学习教程&lt;/div&gt;</span><br><span class="line">&lt;h4&gt;https:geekes.cn&lt;/h4&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; id=&quot;b&quot;&gt;点击&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>##id选择器<br>$(“#id”)<br>根据 id 选择元素<br>id应该是唯一的,如果id重复,则只会选择第一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html&quot; charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">   $(&quot;#a&quot;).click(function()&#123;</span><br><span class="line">      $(&quot;#d&quot;).addClass(&quot;red&quot;);</span><br><span class="line">   &#125;);    </span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.red&#123;</span><br><span class="line">   background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; id=&quot;a&quot;&gt;d添加颜色&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;c&quot;&gt;极客教程&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;d&quot;&gt;极客的学习教程&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;h&quot;&gt;https:geekes.cn&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;j&quot;&gt;jquery学习&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h2><p>$(“.className”)<br>根据 class 选择元素<br>class重复,则会选择多个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html&quot; charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">   $(&quot;#a&quot;).click(function()&#123;</span><br><span class="line">      $(&quot;.d&quot;).addClass(&quot;red&quot;);</span><br><span class="line">   &#125;);    </span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.red&#123;</span><br><span class="line">   background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; id=&quot;a&quot;&gt;d添加颜色&lt;/button&gt;</span><br><span class="line">&lt;div class=&quot;c&quot;&gt;极客教程&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;d&quot;&gt;极客的学习教程&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;h&quot;&gt;https:geekes.cn&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;j&quot;&gt;jquery学习&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h2><p>$(“selector1 selector2”)<br>选择 selector1下的selector2元素,选择id=d的div下span元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html&quot; charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">   $(&quot;#a&quot;).click(function()&#123;</span><br><span class="line">      $(&quot;div#d span&quot;).addClass(&quot;red&quot;);</span><br><span class="line">   &#125;);    </span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.red&#123;</span><br><span class="line">   background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; id=&quot;a&quot;&gt;d添加颜色&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;c&quot;&gt;&lt;span&gt;极客教程&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;d&quot;&gt;&lt;span&gt;极客的学习教程&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;h&quot;&gt;&lt;span&gt;https:geekes.cn&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;j&quot;&gt;&lt;span&gt;jquery学习&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h2><p>$(selector:first) 满足选择器条件的第一个元素<br>$(selector:last) 满足选择器条件的最后一个元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">   $(&quot;#a&quot;).click(function()&#123;</span><br><span class="line">      $(&quot;div:first&quot;).addClass(&quot;red&quot;);</span><br><span class="line">   &#125;);    </span><br><span class="line">   $(&quot;#b&quot;).click(function()&#123;</span><br><span class="line">      $(&quot;div:last&quot;).addClass(&quot;red&quot;);</span><br><span class="line">   &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.red&#123;</span><br><span class="line">   background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; id=&quot;a&quot;&gt;第一个添加颜色&lt;/button&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; id=&quot;b&quot;&gt;最后一个添加颜色&lt;/button&gt;</span><br><span class="line">&lt;div&gt;极客教程&lt;/div&gt;</span><br><span class="line">&lt;div&gt;极客的学习教程&lt;/div&gt;</span><br><span class="line">&lt;div&gt;https:geekes.cn&lt;/div&gt;</span><br><span class="line">&lt;div&gt;jquery学习&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="可见性选择器"><a href="#可见性选择器" class="headerlink" title="可见性选择器"></a>可见性选择器</h2><p>$(selector:hidden) 满足选择器条件的不可见的元素<br>$(selector:visible) 满足选择器条件的可见的元素<br>注:div:visible 和div :visible(有空格)是不同的意思<br>div:visible 表示选中可见的div<br>div :visible(有空格) 表示选中div下可见的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html&quot; charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot; &quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">   $(&quot;#a&quot;).click(function()&#123;</span><br><span class="line">     $(&quot;div:visible&quot;).hide();</span><br><span class="line">   &#125;);</span><br><span class="line">   $(&quot;#b&quot;).click(function()&#123;</span><br><span class="line">      $(&quot;div:hidden&quot;).show();     </span><br><span class="line">   &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> &lt;button id=&quot;a&quot;&gt;隐藏&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;b&quot;&gt;显示&lt;/button&gt;</span><br><span class="line">&lt;div&gt;极客教程&lt;/div&gt;</span><br><span class="line">&lt;div&gt;极客的学习教程&lt;/div&gt;</span><br><span class="line">&lt;div&gt;https:geekes.cn&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><p>$(selector[attribute]) 满足选择器条件的有某属性的元素<br>$(selector[attribute=value]) 满足选择器条件的属性等于value的元素<br>$(selector[attribute!=value]) 满足选择器条件的属性不等于value的元素<br>$(selector[attribute^=value]) 满足选择器条件的属性以value开头的元素<br>$(selector[attribute$=value]) 满足选择器条件的属性以value结尾的元素<br>$(selector[attribute*=value]) 满足选择器条件的属性包含value的元素<br>注:一般不要使用[class=className] 而应该使用.className<br>因为使用$(“[class=’className’]”) .toggleClass(“anotherClassName”)<br>会导致class变成className anotherClassName, 使用 [class=className] 无法选中<br>而.className没有这个问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html&quot; charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt; </span><br><span class="line">  &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line"> $(&quot;#a&quot;).click(function()&#123;</span><br><span class="line">   $(&quot;div[id]&quot;).toggleClass(&apos;border&apos;);</span><br><span class="line"> &#125;);</span><br><span class="line">  $(&quot;#b&quot;).click(function()&#123;</span><br><span class="line">   $(&quot;div[id!=&apos;red&apos;]&quot;).toggleClass(&apos;border&apos;);</span><br><span class="line"> &#125;);</span><br><span class="line">   $(&quot;#c&quot;).click(function()&#123;</span><br><span class="line">   $(&quot;div[id!=&apos;red&apos;]&quot;).toggleClass(&apos;border&apos;);</span><br><span class="line"> &#125;);</span><br><span class="line">    $(&quot;#d&quot;).click(function()&#123;</span><br><span class="line">   $(&quot;div[id^=&apos;r&apos;]&quot;).toggleClass(&apos;border&apos;);</span><br><span class="line"> &#125;);</span><br><span class="line">     $(&quot;#e&quot;).click(function()&#123;</span><br><span class="line">   $(&quot;div[id$=&apos;d&apos;]&quot;).toggleClass(&apos;border&apos;);</span><br><span class="line"> &#125;);</span><br><span class="line">      $(&quot;#f&quot;).click(function()&#123;</span><br><span class="line">   $(&quot;div[id*=&apos;ee&apos;]&quot;).toggleClass(&apos;border&apos;);</span><br><span class="line"> &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">.red&#123;</span><br><span class="line">   background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">.green&#123;</span><br><span class="line">   background-color:green;</span><br><span class="line">&#125;</span><br><span class="line">.border&#123;</span><br><span class="line">   border: 1px blue solid;   </span><br><span class="line">&#125;</span><br><span class="line">button&#123;</span><br><span class="line">   margin-top:10px;</span><br><span class="line">   display:block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div&#123;</span><br><span class="line">  margin:10px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">   &lt;button id=&quot;a&quot;&gt;id属性的div切换边框&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;b&quot;&gt;id=red的div切换边框&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;c&quot;&gt;id!=red属性的div切换边框&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;d&quot;&gt;id以r开头的div切换边框&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;e&quot;&gt;id以d结尾的div切换边框&lt;/button&gt;</span><br><span class="line">  &lt;button id=&quot;f&quot;&gt;id包含ee的div切换边框&lt;/button&gt;               </span><br><span class="line">&lt;div id=&quot;red&quot;&gt;</span><br><span class="line">    id=red的div</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;green&quot;&gt;</span><br><span class="line">  id=green的div</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div &gt;</span><br><span class="line">   没有id的div</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="奇偶选择器"><a href="#奇偶选择器" class="headerlink" title="奇偶选择器"></a>奇偶选择器</h2><p>$(selector:odd) 满足选择器条件的奇数元素<br>$(selector:even) 满足选择器条件的偶数元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt; </span><br><span class="line">&lt;html&gt; </span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html&quot; charset=&quot;utf-8&quot;&gt;</span><br><span class="line"> &lt;head&gt; </span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;   &lt;title&gt;&lt;/title&gt; </span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(function()&#123;  </span><br><span class="line">  $(&quot;#a&quot;).click(function()&#123;    </span><br><span class="line">   $(&quot;div:even&quot;).addClass(&quot;red&quot;); </span><br><span class="line">   &#125;);   </span><br><span class="line">  $(&quot;#b&quot;).click(function()&#123; </span><br><span class="line">      $(&quot;div:odd&quot;).addClass(&quot;green&quot;);  </span><br><span class="line">  &#125;);     </span><br><span class="line">  &#125;); </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"> &lt;/head&gt;</span><br><span class="line"> &lt;style&gt; </span><br><span class="line">.red&#123;  </span><br><span class="line">  background-color:red;</span><br><span class="line"> &#125; </span><br><span class="line">.green&#123;  </span><br><span class="line">  background-color:green; </span><br><span class="line">&#125; </span><br><span class="line">&lt;/style&gt; </span><br><span class="line">&lt;body&gt; </span><br><span class="line">&lt;button type=&quot;button&quot; id=&quot;a&quot;&gt;奇数添加颜色&lt;/button&gt; &lt;button type=&quot;button&quot; id=&quot;b&quot;&gt;偶数添加颜色&lt;/button&gt;</span><br><span class="line"> &lt;div&gt;极客教程&lt;/div&gt; </span><br><span class="line">&lt;div&gt;极客的学习教程&lt;/div&gt;</span><br><span class="line"> &lt;div&gt;https:geekes.cn&lt;/div&gt; </span><br><span class="line">&lt;div&gt;jquery学习&lt;/div&gt; </span><br><span class="line">&lt;/body&gt;</span><br><span class="line"> &lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="表单对象"><a href="#表单对象" class="headerlink" title="表单对象"></a>表单对象</h2><p>表单对象选择器 指的是选中form下会出现的输入元素<br>:input 会选择所有的输入元素,不仅仅是input标签开始的那些,还包括textarea,select和button<br>:button 会选择type=button的input元素和button元素<br>:radio 会选择单选框<br>:checkbox会选择复选框<br>:text会选择文本框，但是不会选择文本域<br>:submit会选择提交按钮<br>:image会选择图片型提交按钮<br>:reset会选择重置按钮<br>$(“td[rowspan!=13] 后面有一个空格，表示层级选择器，如果没有就会出错<br>toggle(500) 表示在显示与隐藏之间来回切换，生效时间是500毫秒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注: :submit会把&lt;button&gt;元素选中,&lt;button&gt;元素的type默认值是submit</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html&quot; charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">   $(&quot;.b&quot;).click(function()&#123;</span><br><span class="line">      var value = $(this).val();</span><br><span class="line">      $(&quot;td[rowspan!=13] &quot;+value).toggle(500);</span><br><span class="line">   &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">table&#123;</span><br><span class="line">    border-collapse:collapse;</span><br><span class="line">        table-layout:fixed;</span><br><span class="line">    width:80%;</span><br><span class="line">&#125;</span><br><span class="line">table td&#123;</span><br><span class="line">    border-bottom: 1px solid #ddd;</span><br><span class="line">    padding-bottom: 5px;</span><br><span class="line">    padding-top: 5px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div button&#123;</span><br><span class="line">    display:block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td rowspan=&quot;13&quot; valign=&quot;top&quot; width=&quot;150px&quot;&gt;</span><br><span class="line">            &lt;div &gt;</span><br><span class="line">                &lt;button value=&quot;:input&quot; class=&quot;b&quot;&gt;切换所有的:input&lt;/button&gt;</span><br><span class="line">                &lt;button value=&quot;:button&quot; class=&quot;b&quot;&gt;切换:button&lt;/button&gt;</span><br><span class="line">                &lt;button value=&quot;:radio&quot; class=&quot;b&quot;&gt;切换:radio&lt;/button&gt;     </span><br><span class="line">                &lt;button value=&quot;:checkbox&quot; class=&quot;b&quot;&gt;切换:checkbox&lt;/button&gt;       </span><br><span class="line">                &lt;button value=&quot;:text&quot; class=&quot;b&quot;&gt;切换:text&lt;/button&gt;       </span><br><span class="line">                &lt;button value=&quot;:password&quot; class=&quot;b&quot;&gt;切换:password&lt;/button&gt;       </span><br><span class="line">                &lt;button value=&quot;:file&quot; class=&quot;b&quot;&gt;切换:file&lt;/button&gt;       </span><br><span class="line">                &lt;button value=&quot;:submit&quot; class=&quot;b&quot;&gt;切换:submit&lt;/button&gt;       </span><br><span class="line">                &lt;button value=&quot;:image&quot; class=&quot;b&quot;&gt;切换:image&lt;/button&gt;     </span><br><span class="line">                &lt;button value=&quot;:reset&quot; class=&quot;b&quot;&gt;切换:reset&lt;/button&gt;         </span><br><span class="line">            &lt;/div&gt;           </span><br><span class="line">        &lt;/td&gt;</span><br><span class="line">        &lt;td width=&quot;120px&quot;&gt;说明&lt;/td&gt;</span><br><span class="line">        &lt;td width=&quot;120px&quot;&gt;表单对象&lt;/td&gt;</span><br><span class="line">        &lt;td width=&quot;&quot;&gt;示例&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td &gt;input按钮&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:button&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;input按钮&quot;/&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line"></span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;button按钮&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:button&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;button&gt;Button按钮&lt;/button&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;单选框&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:radio&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;input type=&quot;radio&quot; &gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;复选框&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:checkbox&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;input type=&quot;checkbox&quot;  &gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;文本框&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:text&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;input type=&quot;text&quot; /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;文本域&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;textarea&gt;&lt;/textarea&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;密码框&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:password&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;input type=&quot;password&quot; /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;下拉框&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;select&gt;&lt;option&gt;极客教程&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;文件上传&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:file&lt;/td&gt;</span><br><span class="line">  &lt;td&gt; &lt;input type=&quot;file&quot; /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;提交按钮&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:submit&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;input type=&quot;submit&quot; /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;图片型提交按钮&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:image&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;input type=&quot;image&quot; src=&quot;https://geekes.github.io/images/header.jpg&quot; /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">  &lt;td&gt;重置按钮&lt;/td&gt;</span><br><span class="line">  &lt;td &gt;:reset&lt;/td&gt;</span><br><span class="line">  &lt;td&gt;&lt;input type=&quot;reset&quot; /&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="表单对象属性"><a href="#表单对象属性" class="headerlink" title="表单对象属性"></a>表单对象属性</h2><p>:enabled会选择可用的输入元素 注:输入元素的默认状态都是可用<br>:disabled会选择不可用的输入元素<br>:checked会选择被选中的单选框和复选框 注: checked在部分浏览器上(火狐,chrome)也可以选中selected的option<br>:selected会选择被选中的option元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html&quot; charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;title&gt;&lt;/title&gt;</span><br><span class="line">  &lt;script type=&quot;text/javascript&quot; src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">   $(&quot;.a&quot;).click(function()&#123;</span><br><span class="line">      var value = $(this).val();</span><br><span class="line">      $(&quot;td[rowspan!=13] &quot;+value).toggle(500);</span><br><span class="line">   &#125;);    </span><br><span class="line">   $(&quot;.b&quot;).click(function()&#123;</span><br><span class="line">      var value = $(this).val();</span><br><span class="line">      var options = $(&quot;td[rowspan!=13] &quot;+value);</span><br><span class="line">      alert(&quot;选中了&quot;+options.length+&quot;条记录！&quot;);</span><br><span class="line">   &#125;);       </span><br><span class="line">&#125;);     </span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">table&#123;</span><br><span class="line">    border-collapse:collapse;</span><br><span class="line">        table-layout:fixed;</span><br><span class="line">    width:80%;</span><br><span class="line">&#125;</span><br><span class="line">table td&#123;</span><br><span class="line">    border-bottom: 1px solid #ddd;</span><br><span class="line">    padding-bottom: 5px;</span><br><span class="line">    padding-top: 5px;</span><br><span class="line">&#125;</span><br><span class="line">div button&#123;</span><br><span class="line">    display:block;</span><br><span class="line">&#125;</span><br><span class="line">.border&#123;</span><br><span class="line">   border: 1px blue solid;   </span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line"> &lt;td rowspan=&quot;13&quot; valign=&quot;top&quot; width=&quot;120&quot;&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button value=&quot;:enabled&quot; class=&quot;a&quot;&gt;切换:enable&lt;/button&gt;</span><br><span class="line">    &lt;button value=&quot;:disable&quot; class=&quot;a&quot;&gt;切换:disable&lt;/button&gt;</span><br><span class="line">&lt;button value=&quot;:checked&quot; class=&quot;a&quot;&gt;切换:checked&lt;/button&gt;</span><br><span class="line">&lt;button value=&quot;:selected&quot; class=&quot;b&quot;&gt;:selected数量&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"> &lt;/td&gt;</span><br><span class="line"> &lt;td width=&quot;120&quot;&gt;说明&lt;/td&gt;</span><br><span class="line"> &lt;td width=&quot;120&quot;&gt;表单对象属性&lt;/td&gt;</span><br><span class="line"> &lt;td width=&quot;100px&quot;&gt;示例&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line"> &lt;td&gt;enabled按钮&lt;/td&gt;</span><br><span class="line"> &lt;td&gt;:enabled&lt;/td&gt;</span><br><span class="line"> &lt;td&gt;&lt;input type=&quot;button&quot; enabled=&quot;enabled&quot; value=&quot;enabled按钮&quot;/&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line"> &lt;td&gt;disabled按钮&lt;/td&gt;</span><br><span class="line"> &lt;td&gt;:disabled&lt;/td&gt;</span><br><span class="line"> &lt;td&gt;&lt;input type=&quot;button&quot; disabled=&quot;disabled&quot; value=&quot;disabled按钮&quot;/&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line"> &lt;td&gt;选中复选框&lt;/td&gt;</span><br><span class="line"> &lt;td&gt;:checked&lt;/td&gt;</span><br><span class="line"> &lt;td&gt;</span><br><span class="line">  &lt;input type=&quot;radio&quot; checked=&quot;checked&quot; &gt;&lt;br&gt;</span><br><span class="line">    &lt;input type=&quot;radio&quot; &gt;&lt;br&gt;</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; &gt;&lt;br&gt;</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot; &gt;</span><br><span class="line">  &lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line"> &lt;td&gt;选择下拉列表&lt;/td&gt;</span><br><span class="line"> &lt;td&gt;:selected&lt;/td&gt;</span><br><span class="line"> &lt;td&gt;</span><br><span class="line"> &lt;select size=&quot;3&quot; multiple=&quot;multiple&quot;&gt;</span><br><span class="line">   &lt;option selected=&quot;selected&quot;&gt;JAVA&lt;/option&gt;</span><br><span class="line">   &lt;option&gt;PHP&lt;/option&gt;</span><br><span class="line">    &lt;option selected=&quot;selected&quot;&gt;Android&lt;/option&gt;</span><br><span class="line"> &lt;/select&gt;</span><br><span class="line"> &lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="当前元素"><a href="#当前元素" class="headerlink" title="当前元素"></a>当前元素</h2><p>监听函数中使用 $(this),则表示触发该事件的组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;js/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">  $(this).hide();</span><br><span class="line">&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;button type=&quot;button&quot;&gt;隐藏&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="jQuery选择器总结"><a href="#jQuery选择器总结" class="headerlink" title="jQuery选择器总结:"></a>jQuery选择器总结:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#id&quot;, &quot;.class&quot;)  复合选择器</span><br><span class="line">$(div p span)       层级选择器 //div下的p元素中的span元素</span><br><span class="line">$(div&gt;p)            父子选择器 //div下的所有p元素</span><br><span class="line">$(div+p)            相邻元素选择器 //div后面的p元素(仅一个p)</span><br><span class="line">$(div~p)            兄弟选择器  //div后面的所有p元素(同级别)</span><br><span class="line">$(.p:last)          类选择器 加 过滤选择器  第一个和最后一个（first 或者 last）</span><br><span class="line">$(&quot;[href$=&apos;.jpg&apos;]&quot;)  所有带有以 &quot;.jpg&quot; 结尾的属性值的 href 属性</span><br><span class="line">$(&quot;#mytable td:odd&quot;)    层级选择 加 过滤选择器 奇偶（odd 或者 even）</span><br><span class="line">$(&quot;div p:eq(2)&quot;)    索引选择器 div下的第三个p元素（索引是从0开始）</span><br><span class="line">$(&quot;a[href=&apos;www.geekes.cn&apos;]&quot;)  属性选择器</span><br><span class="line">$(&quot;p:contains(test)&quot;)        // 内容过滤选择器，包含text内容的p元素</span><br><span class="line">$(&quot;:emtyp&quot;)        //内容过滤选择器，所有空标签（不包含子标签和内容的标签）parent 相反</span><br><span class="line">$(&quot;:hidden&quot;)       //所有隐藏元素 visible </span><br><span class="line">$(&quot;input:enabled&quot;) //选取所有启用的表单元素</span><br><span class="line">$(&quot;:disabled&quot;)     //所有不可用的元素</span><br><span class="line">$(&quot;input:checked&quot;) //获取所有选中的复选框单选按钮等</span><br><span class="line">$(&quot;select option:selected&quot;) //获取选中的选项元素</span><br></pre></td></tr></table></figure>
+
+<h1 id="JQuery效果"><a href="#JQuery效果" class="headerlink" title="JQuery效果"></a>JQuery效果</h1><h2 id="jQuery-hide-和show"><a href="#jQuery-hide-和show" class="headerlink" title="jQuery hide()和show()"></a>jQuery hide()和show()</h2><p>使用hide()和show()方法来隐藏和显示HTML元素:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;#hide&quot;).click(function()&#123;</span><br><span class="line">  $(&quot;div&quot;).hide();</span><br><span class="line">  &#125;);</span><br><span class="line">  $(&quot;#show&quot;).click(function()&#123;</span><br><span class="line">  $(&quot;div&quot;).show();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div&gt;点击隐藏/显示&lt;/div&gt;</span><br><span class="line">&lt;button  type=&quot;button&quot; id=&quot;hide&quot;&gt;隐藏&lt;/button&gt;</span><br><span class="line">&lt;button  type=&quot;button&quot; id=&quot;show&quot;&gt;显示&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法:<br>$(selector).hide(speed,callback);<br>$(selector).show(speed,callback);<br>可选的speed 参数规定隐藏/显示的速度,可以取以下值：”slow”、”fast” 或毫秒<br>可选的 callback 参数是隐藏或显示完成后所执行的函数名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">  $(&quot;div&quot;).hide(1000);</span><br><span class="line">  &#125;);</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">  $(&quot;div&quot;).show(1000);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div&gt;点击隐藏/显示&lt;/div&gt;</span><br><span class="line">&lt;div&gt;jquery 极客教程&lt;/div&gt;</span><br><span class="line">&lt;button&gt;显示/隐藏&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>带有speed 参数的 hide() 方法,并使用回调函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">     $(&quot;div&quot;).hide(1000,&quot;linear&quot;,function()&#123;</span><br><span class="line">      alert(&quot;hide()已完成!&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    div&#123;</span><br><span class="line">    width: 80px;</span><br><span class="line">    height: 80px;</span><br><span class="line">    background-color: #f2f2f2;  </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div&gt;点击隐藏&lt;/div&gt;</span><br><span class="line">&lt;div&gt;jquery 极客教程&lt;/div&gt;</span><br><span class="line">&lt;button&gt;隐藏&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可以使用 toggle() 方法来切换 hide() 和 show() 方法<br>显示被隐藏的元素,并隐藏已显示的元素:<br>$(selector).toggle(speed,callback);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">  $(&quot;div&quot;).toggle();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div&gt;点击隐藏/显示&lt;/div&gt;</span><br><span class="line">&lt;div&gt;jquery 极客教程&lt;/div&gt;</span><br><span class="line">&lt;button&gt;显示/隐藏&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可选的 speed 参数规定隐藏/显示的速度,可以取以下值：”slow”、”fast” 或毫秒<br>可选的 callback 参数是 toggle() 方法完成后所执行的函数名称</p>
+<h2 id="jQuery-Fading-方法"><a href="#jQuery-Fading-方法" class="headerlink" title="jQuery Fading 方法"></a>jQuery Fading 方法</h2><p>jQuery 拥有四种 fade 方法:</p>
+<ul>
+<li>fadeIn()</li>
+<li>fadeOut()</li>
+<li>fadeToggle()</li>
+<li>fadeTo()</li>
+</ul>
+<h2 id="jQuery-fadeIn-方法"><a href="#jQuery-fadeIn-方法" class="headerlink" title="jQuery fadeIn() 方法"></a>jQuery fadeIn() 方法</h2><p>jQuery fadeIn() 用于淡入已隐藏的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()</span><br><span class="line">  &#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#div1&quot;).fadeIn();</span><br><span class="line">    $(&quot;#div2&quot;).fadeIn(&quot;slow&quot;);</span><br><span class="line">    $(&quot;#div3&quot;).fadeIn(1000);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">#div1&#123;</span><br><span class="line">background-color:red;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">display: none;</span><br><span class="line">&#125;    </span><br><span class="line">#div2&#123;</span><br><span class="line">background-color:blue;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">display: none;</span><br><span class="line">&#125;    </span><br><span class="line">#div3&#123;</span><br><span class="line">background-color:green;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">display: none;</span><br><span class="line">&#125;    </span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button&gt;点击淡入&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;div3&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法:<br>$(selector).fadeIn(speed,callback);<br>可选的 speed 参数规定效果的时长,它可以取以下值:”slow”、”fast” 或毫秒。<br>可选的 callback 参数是 fading 完成后所执行的函数名称</p>
+<h2 id="jQuery-fadeOut-方法"><a href="#jQuery-fadeOut-方法" class="headerlink" title="jQuery fadeOut() 方法"></a>jQuery fadeOut() 方法</h2><p>jQuery fadeOut() 方法用于淡出可见元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()</span><br><span class="line">  &#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#div1&quot;).fadeOut();</span><br><span class="line">    $(&quot;#div2&quot;).fadeOut(&quot;slow&quot;);</span><br><span class="line">    $(&quot;#div3&quot;).fadeOut(1000);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">#div1&#123;</span><br><span class="line">background-color:red;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">&#125;    </span><br><span class="line">#div2&#123;</span><br><span class="line">background-color:blue;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">&#125;    </span><br><span class="line">#div3&#123;</span><br><span class="line">background-color:green;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">&#125;    </span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button&gt;点击淡出&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;div3&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="jQuery-fadeToggle-方法"><a href="#jQuery-fadeToggle-方法" class="headerlink" title="jQuery fadeToggle() 方法"></a>jQuery fadeToggle() 方法</h2><p>jQuery fadeToggle() 方法可以在 fadeIn() 与 fadeOut() 方法之间进行切换<br>如果元素已淡出,则 fadeToggle() 会向元素添加淡入效果<br>如果元素已淡入,则 fadeToggle() 会向元素添加淡出效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()</span><br><span class="line">  &#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#div1&quot;).fadeToggle();</span><br><span class="line">    $(&quot;#div2&quot;).fadeToggle(&quot;slow&quot;);</span><br><span class="line">    $(&quot;#div3&quot;).fadeToggle(1000);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">#div1&#123;</span><br><span class="line">background-color:red;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">&#125;    </span><br><span class="line">#div2&#123;</span><br><span class="line">background-color:blue;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">&#125;    </span><br><span class="line">#div3&#123;</span><br><span class="line">background-color:green;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">&#125;    </span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button&gt;点击淡入或淡出&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;div3&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法:<br>$(selector).fadeToggle(speed,callback);<br>可选的 speed 参数规定效果的时长,它可以取以下值:”slow”、”fast” 或毫秒<br>可选的 callback 参数是 fading 完成后所执行的函数名称</p>
+<h2 id="jQuery-fadeTo-方法"><a href="#jQuery-fadeTo-方法" class="headerlink" title="jQuery fadeTo() 方法"></a>jQuery fadeTo() 方法</h2><p>jQuery fadeTo() 方法允许渐变为给定的不透明度（值介于 0 与 1 之间）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()</span><br><span class="line">  &#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#div1&quot;).fadeTo(&quot;slow&quot;,0.25);</span><br><span class="line">    $(&quot;#div2&quot;).fadeTo(&quot;slow&quot;,0.5);</span><br><span class="line">    $(&quot;#div3&quot;).fadeTo(&quot;slow&quot;,0.75);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">#div1&#123;</span><br><span class="line">background-color:red;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">&#125;    </span><br><span class="line">#div2&#123;</span><br><span class="line">background-color:blue;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">&#125;    </span><br><span class="line">#div3&#123;</span><br><span class="line">background-color:green;    </span><br><span class="line">width: 150px;</span><br><span class="line">height: 150px;</span><br><span class="line">&#125;    </span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button&gt;点击淡出&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;div3&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法:<br>$(selector).fadeTo(speed,opacity,callback);<br>必需的 speed 参数规定效果的时长,它可以取以下值：”slow”、”fast” 或毫秒<br>fadeTo() 方法中必需的 opacity 参数将淡入淡出效果设置为给定的不透明度(值介于 0 与 1 之间)<br>可选的 callback 参数是该函数完成后所执行的函数名称</p>
+<h1 id="jQuery-滑动方法"><a href="#jQuery-滑动方法" class="headerlink" title="jQuery 滑动方法"></a>jQuery 滑动方法</h1><p>可以在元素上创建滑动效果<br>jQuery 拥有以下滑动方法:</p>
+<ul>
+<li>slideDown()</li>
+<li>slideUp()</li>
+<li>slideToggle()</li>
+</ul>
+<h2 id="jQuery-slideDown-方法"><a href="#jQuery-slideDown-方法" class="headerlink" title="jQuery slideDown() 方法"></a>jQuery slideDown() 方法</h2><p>jQuery slideDown() 方法用于向下滑动元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;#up&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#down&quot;).slideDown(&quot;slow&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt; </span><br><span class="line">#up</span><br><span class="line">&#123;</span><br><span class="line">    padding:5px;</span><br><span class="line">    text-align:center;</span><br><span class="line">    background-color:#f2f2f2;</span><br><span class="line">    border:solid 1px #c3c3c3;</span><br><span class="line">&#125;</span><br><span class="line">#down</span><br><span class="line">&#123;</span><br><span class="line">    background-color: #C3C3C3;</span><br><span class="line">    padding:50px;</span><br><span class="line">    display:none;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=&quot;up&quot;&gt;滑动面板&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;down&quot;&gt;jquery&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法:<br>$(selector).slideDown(speed,callback);<br>可选的 speed 参数规定效果的时长,它可以取以下值：”slow”、”fast” 或毫秒<br>可选的 callback 参数是滑动完成后所执行的函数名称</p>
+<h2 id="jQuery-slideUp-方法"><a href="#jQuery-slideUp-方法" class="headerlink" title="jQuery slideUp() 方法"></a>jQuery slideUp() 方法</h2><p>jQuery slideUp() 方法用于向上滑动元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;#up&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#down&quot;).slideUp(&quot;slow&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt; </span><br><span class="line">#up</span><br><span class="line">&#123;</span><br><span class="line">    padding:5px;</span><br><span class="line">    text-align:center;</span><br><span class="line">    background-color:#f2f2f2;</span><br><span class="line">    border:solid 1px #c3c3c3;</span><br><span class="line">&#125;</span><br><span class="line">#down</span><br><span class="line">&#123;</span><br><span class="line">    background-color: #C3C3C3;</span><br><span class="line">    padding:50px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=&quot;up&quot;&gt;滑动面板&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;down&quot;&gt;jquery&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法:<br>$(selector).slideUp(speed,callback);<br>可选的 speed 参数规定效果的时长,它可以取以下值：”slow”、”fast” 或毫秒<br>可选的 callback 参数是滑动完成后所执行的函数名称</p>
+<h2 id="jQuery-slideToggle-方法"><a href="#jQuery-slideToggle-方法" class="headerlink" title="jQuery slideToggle() 方法"></a>jQuery slideToggle() 方法</h2><p>jQuery slideToggle() 方法可以在 slideDown() 与 slideUp() 方法之间进行切换<br>如果元素向下滑动,则 slideToggle() 可向上滑动<br>如果元素向上滑动,则 slideToggle() 可向下滑动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;#up&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#down&quot;).slideToggle(&quot;slow&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt; </span><br><span class="line">#up</span><br><span class="line">&#123;</span><br><span class="line">    padding:5px;</span><br><span class="line">    text-align:center;</span><br><span class="line">    background-color:#f2f2f2;</span><br><span class="line">    border:solid 1px #c3c3c3;</span><br><span class="line">&#125;</span><br><span class="line">#down</span><br><span class="line">&#123;</span><br><span class="line">    background-color: #C3C3C3;</span><br><span class="line">    padding:50px;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div id=&quot;up&quot;&gt;滑动面板&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;down&quot;&gt;jquery&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法:<br>$(selector).slideToggle(speed,callback);<br>可选的 speed 参数规定效果的时长，可以取以下值：”slow”、”fast” 或毫秒<br>可选的 callback 参数是滑动完成后所执行的函数名称</p>
+<h2 id="jQuery-动画-animate-方法"><a href="#jQuery-动画-animate-方法" class="headerlink" title="jQuery 动画 - animate() 方法"></a>jQuery 动画 - animate() 方法</h2><p>jQuery animate() 方法用于创建自定义动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;div&quot;).animate(&#123;left:&apos;150px&apos;&#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt; </span><br><span class="line">&lt;style&gt;</span><br><span class="line">    div&#123;</span><br><span class="line">    background:#f2f2f2;</span><br><span class="line">    height:100px;</span><br><span class="line">    width:100px;</span><br><span class="line">    position:absolute;  </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button&gt;开始动画&lt;/button&gt;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法:<br>$(selector).animate({params},speed,callback);<br>必需的 params 参数定义形成动画的 CSS 属性<br>可选的 speed 参数规定效果的时长,可以取以下值：”slow”、”fast” 或毫秒<br>可选的 callback 参数是动画完成后所执行的函数名称<br>jQuery animate() - 操作多个属性<br>生成动画的过程中可同时使用多个属性:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;div&quot;).animate(&#123;</span><br><span class="line">        left:&apos;150px&apos;,</span><br><span class="line">        opacity:&apos;1&apos;,</span><br><span class="line">        height:&apos;150px&apos;,</span><br><span class="line">        width:&apos;150px&apos;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt; </span><br><span class="line">&lt;style&gt;</span><br><span class="line">    div&#123;</span><br><span class="line">    background:#f2f2f2;</span><br><span class="line">    height:100px;</span><br><span class="line">    width:100px;</span><br><span class="line">    position:absolute;  </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button&gt;开始动画&lt;/button&gt;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>jQuery animate() - 使用相对值<br>也可以定义相对值(该值相对于元素的当前值),需要在值的前面加上 += 或 -=:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;div&quot;).animate(&#123;</span><br><span class="line">        left:&apos;150px&apos;,</span><br><span class="line">        height:&apos;+=150px&apos;,</span><br><span class="line">        width:&apos;+=150px&apos;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt; </span><br><span class="line">&lt;style&gt;</span><br><span class="line">    div&#123;</span><br><span class="line">    background:#f2f2f2;</span><br><span class="line">    height:100px;</span><br><span class="line">    width:100px;</span><br><span class="line">    position:absolute;  </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button&gt;开始动画&lt;/button&gt;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>jQuery animate() - 使用预定义的值<br>可以把属性的动画值设置为 “show”、”hide” 或 “toggle”:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;div&quot;).animate(&#123;</span><br><span class="line">      height:&apos;toggle&apos;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt; </span><br><span class="line">&lt;style&gt;</span><br><span class="line">    div&#123;</span><br><span class="line">    background:#f2f2f2;</span><br><span class="line">    height:100px;</span><br><span class="line">    width:100px;</span><br><span class="line">    position:absolute;  </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button&gt;开始动画&lt;/button&gt;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>jQuery animate() - 使用队列功能<br>jQuery 提供针对动画的队列功能<br>运用 animate() 调用的”内部”队列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    var div=$(&quot;div&quot;);</span><br><span class="line">    div.animate(&#123;height:&apos;300px&apos;,opacity:&apos;0.25&apos;&#125;,&quot;slow&quot;);</span><br><span class="line">    div.animate(&#123;width:&apos;300px&apos;,opacity:&apos;0.75&apos;&#125;,&quot;slow&quot;);</span><br><span class="line">    div.animate(&#123;height:&apos;100px&apos;,opacity:&apos;0.25&apos;&#125;,&quot;slow&quot;);</span><br><span class="line">    div.animate(&#123;width:&apos;100px&apos;,opacity:&apos;0.75&apos;&#125;,&quot;slow&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt; </span><br><span class="line">&lt;style&gt;</span><br><span class="line">    div&#123;</span><br><span class="line">    background:#f2f2f2;</span><br><span class="line">    height:100px;</span><br><span class="line">    width:100px;</span><br><span class="line">    position:absolute;  </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button&gt;开始动画&lt;/button&gt;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="jQuery-stop-方法"><a href="#jQuery-stop-方法" class="headerlink" title="jQuery stop() 方法"></a>jQuery stop() 方法</h2><p>jQuery stop() 方法用于停止动画或效果<br>stop() 方法适用于所有jQuery效果函数,包括滑动、淡入淡出和自定义动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;#up&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#down&quot;).slideDown(3000);</span><br><span class="line">  &#125;);</span><br><span class="line">   $(&quot;#stop&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#down&quot;).stop();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt; </span><br><span class="line">&lt;style&gt;</span><br><span class="line">    #up,#down&#123;</span><br><span class="line">    background:#f2f2f2;</span><br><span class="line">    padding: 5px;</span><br><span class="line"> text-align: center;</span><br><span class="line">  border: 1px #c2c2c2;</span><br><span class="line">    &#125;</span><br><span class="line">    #down&#123;</span><br><span class="line">padding: 150px;</span><br><span class="line">display: none;        </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button id=&quot;stop&quot;&gt;停止动画&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;up&quot;&gt;滑动面板&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;down&quot;&gt;jquery&lt;/div&gt;</span><br><span class="line">&lt;div&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语法:<br>$(selector).stop(stopAll,goToEnd);<br>可选的stopAll参数规定是否应该清除动画队列,默认是false,即仅停止活动的动画,允许任何排入队列的动画向后执行<br>可选的goToEnd参数规定是否立即完成当前动画,默认是false<br>stop() 会清除在被选元素上指定的当前动画<br>把 css()、slideUp() 和 slideDown() 链接在一起</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()</span><br><span class="line">  &#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;div&quot;).css(&quot;color&quot;,&quot;blue&quot;).slideUp(2000).slideDown(2000);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div&gt;极客教程&lt;/p&gt;</span><br><span class="line">&lt;button&gt;点击&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="jQuery-筛选器"><a href="#jQuery-筛选器" class="headerlink" title="jQuery 筛选器"></a>jQuery 筛选器</h1><h2 id="过滤选择器-1"><a href="#过滤选择器-1" class="headerlink" title="过滤选择器"></a>过滤选择器</h2><p>has() 选择包含的元素<br>filter() 选择相同的元素<br>not() 选择不相同的元素<br>first() 第一个<br>last()  最后一个<br>eq(num) 取得num</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">    $(&quot;#b1&quot;).click(function()&#123;</span><br><span class="line">        $(&quot;div&quot;).first().css(&quot;background-color&quot;,&quot;red&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">    $(&quot;#b2&quot;).click(function()&#123;</span><br><span class="line">        $(&quot;div&quot;).last().css(&quot;background-color&quot;,&quot;blue&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">    $(&quot;#b3&quot;).click(function()&#123;</span><br><span class="line">        $(&quot;div&quot;).not(&quot;.filter&quot;).css(&quot;background-color&quot;,&quot;yellow&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">     $(&quot;#b4&quot;).click(function()&#123;</span><br><span class="line">        $(&quot;div&quot;).has().css(&quot;background-color&quot;,&quot;green&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">      $(&quot;#b5&quot;).click(function()&#123;</span><br><span class="line">        $(&quot;div&quot;).eq(4).css(&quot;background-color&quot;,&quot;purple&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">       $(&quot;#b6&quot;).click(function()&#123;</span><br><span class="line">        $(&quot;div&quot;).filter(&quot;.filter&quot;).css(&quot;background-color&quot;,&quot;black&quot;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button id=&quot;b1&quot;&gt;第一个&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;b2&quot;&gt;最后一个&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;b3&quot;&gt;选择不相同的元素&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;b4&quot;&gt;选择包含的元素&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;b5&quot;&gt;取得num&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;b6&quot;&gt;选择相同的元素&lt;/button&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;span&gt;学习JQuery第一天&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;filter&quot;&gt;</span><br><span class="line">    &lt;span&gt;学习JQuery第二天&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;span&gt;学习JQuery第三天&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;filter&quot;&gt;</span><br><span class="line">    &lt;span&gt;学习JQuery第四天&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;span&gt;学习JQuery第五天&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;filter&quot;&gt;</span><br><span class="line">    &lt;span&gt;学习JQuery第六天&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DOM树遍历"><a href="#DOM树遍历" class="headerlink" title="DOM树遍历"></a>DOM树遍历</h2><p>parent() 父元素<br>parents() 祖先元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">  $(&quot;#b1&quot;).click(function()&#123;</span><br><span class="line">     $(&quot;#currentDiv&quot;).parent().toggleClass(&quot;b&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">  $(&quot;#b2&quot;).click(function()&#123;</span><br><span class="line">     $(&quot;#currentDiv&quot;).parents().toggleClass(&quot;b&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">div&#123;</span><br><span class="line">   padding:20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#grandParentDiv&#123;</span><br><span class="line"> background-color:pink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#parentDiv&#123;</span><br><span class="line"> background-color:green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#currentDiv&#123;</span><br><span class="line"> background-color:red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.b&#123;</span><br><span class="line">   border: 2px solid black;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button id=&quot;b1&quot;&gt;改变parent()的边框&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;b2&quot;&gt;改变parents()的边框&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;grandParentDiv&quot; &gt;</span><br><span class="line">  祖先元素</span><br><span class="line">  &lt;div id=&quot;parentDiv&quot;&gt;</span><br><span class="line">  父元素</span><br><span class="line">    &lt;div id=&quot;currentDiv&quot;&gt;当前元素&lt;/div&gt;  </span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>children() 子元素<br>find() 后代元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">  $(&quot;#b1&quot;).click(function()&#123;</span><br><span class="line">     $(&quot;#currentDiv&quot;).children().toggleClass(&quot;b&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">  $(&quot;#b2&quot;).click(function()&#123;</span><br><span class="line">     $(&quot;#currentDiv&quot;).find(&quot;div&quot;).toggleClass(&quot;b&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">   </span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">   </span><br><span class="line">&lt;style&gt;</span><br><span class="line">div&#123;</span><br><span class="line">   padding:20px;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line">div.grandChildrenDiv&#123;</span><br><span class="line"> background-color:pink;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line">div.childrenDiv&#123;</span><br><span class="line"> background-color:green;</span><br><span class="line"> margin:10px;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line">div#currentDiv&#123;</span><br><span class="line"> background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line">.b&#123;</span><br><span class="line">   border: 2px solid black;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt; </span><br><span class="line">&lt;button id=&quot;b1&quot;&gt;改变children()的边框&lt;/button&gt;</span><br><span class="line">   </span><br><span class="line">&lt;button id=&quot;b2&quot;&gt;改变find()的边框&lt;/button&gt;</span><br><span class="line">   </span><br><span class="line">&lt;div id=&quot;currentDiv&quot; &gt;</span><br><span class="line">  当前元素</span><br><span class="line">  &lt;div class=&quot;childrenDiv&quot;&gt;</span><br><span class="line">  儿子元素1</span><br><span class="line">    &lt;div class=&quot;grandChildrenDiv&quot;&gt;后代元素n&lt;/div&gt; </span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;childrenDiv&quot;&gt;</span><br><span class="line">  儿子元素2</span><br><span class="line">    &lt;div class=&quot;grandChildrenDiv&quot;&gt;后代元素n&lt;/div&gt; </span><br><span class="line">  </span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>siblings() 同胞元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">  $(&quot;#b1&quot;).click(function()&#123;</span><br><span class="line">     $(&quot;#currentDiv&quot;).siblings().toggleClass(&quot;b&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">  </span><br><span class="line">&lt;style&gt;</span><br><span class="line">div&#123;</span><br><span class="line">   padding:20px;</span><br><span class="line">   background-color:pink;</span><br><span class="line">   margin:10px;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">#parentDiv&#123;</span><br><span class="line"> background-color:green;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">#currentDiv&#123;</span><br><span class="line"> background-color:red;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">.b&#123;</span><br><span class="line">   border: 2px solid black;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;   </span><br><span class="line">&lt;button id=&quot;b1&quot;&gt;同级加上边框&lt;/button&gt;</span><br><span class="line">  </span><br><span class="line">&lt;div id=&quot;parentDiv&quot; &gt;</span><br><span class="line">  父元素</span><br><span class="line">  &lt;div id=&quot;currentDiv&quot;&gt;</span><br><span class="line">    当前元素</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div &gt;</span><br><span class="line">    同级元素</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div &gt;</span><br><span class="line">    同级元素</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="jQuery-常用方法"><a href="#jQuery-常用方法" class="headerlink" title="jQuery 常用方法"></a>jQuery 常用方法</h1><p>.html() 取出或设置html内容<br>.text() 取出或设置text内容<br>.attr() 取出或设置某个属性的值<br>.val() 取出某个表单元素的值</p>
+<h2 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(function()&#123;</span><br><span class="line">   $(&quot;#b1&quot;).click(function()&#123;</span><br><span class="line">      alert($(&quot;#input1&quot;).val());</span><br><span class="line">   &#125;);</span><br><span class="line">     $(&quot;#b2&quot;).click(function()&#123;</span><br><span class="line">      alert($(&quot;#d1&quot;).html());</span><br><span class="line">   &#125;);</span><br><span class="line">    $(&quot;#b3&quot;).click(function()&#123;</span><br><span class="line">      alert($(&quot;#d1&quot;).text());</span><br><span class="line">   &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button id=&quot;b1&quot;&gt;取值&lt;/button&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; id=&quot;input1&quot; value=&quot;默认值&quot;&gt;</span><br><span class="line">&lt;button id=&quot;b2&quot;&gt;获取元素的内容&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;b3&quot;&gt;获取元素的文本内容&lt;/button&gt;</span><br><span class="line">&lt;div id=&quot;d1&quot;&gt;</span><br><span class="line">极客教程</span><br><span class="line">&lt;span&gt;</span><br><span class="line">学习JQuery</span><br><span class="line">&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;#btn1&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#test1&quot;).text(&quot;Hello world!&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">  $(&quot;#btn2&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#test2&quot;).html(&quot;&lt;b&gt;Hello world!&lt;/b&gt;&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">  $(&quot;#btn3&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#test3&quot;).val(&quot;JQuery&quot;);</span><br><span class="line">  &#125;);</span><br><span class="line">  $(&quot;#btn4&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;#test4&quot;).attr(&#123;</span><br><span class="line">      &quot;title&quot;:&quot;jquery教程&quot;</span><br><span class="line">      &#125;);</span><br><span class="line">      title = $(&quot;#test4&quot;).attr(&apos;title&apos;);</span><br><span class="line">      $(&quot;#test4&quot;).html(title);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p id=&quot;test1&quot;&gt;第一个段落&lt;/p&gt;</span><br><span class="line">&lt;p id=&quot;test2&quot;&gt;另外一个段落&lt;/p&gt;</span><br><span class="line">&lt;p&gt;输入框: &lt;input type=&quot;text&quot; id=&quot;test3&quot; value=&quot;极客教程&quot;&gt;&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;a href=&quot;#&quot; id=&quot;test4&quot;&gt;极客教程&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">&lt;button id=&quot;btn1&quot;&gt;设置文本&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;btn2&quot;&gt;设置 HTML&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;btn3&quot;&gt;设置值&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;btn4&quot;&gt;设置attr&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="jQuery-属性"><a href="#jQuery-属性" class="headerlink" title="jQuery 属性"></a>jQuery 属性</h1><h1 id="jQuery-事件"><a href="#jQuery-事件" class="headerlink" title="jQuery 事件"></a>jQuery 事件</h1><p>.blur() 表单元素失去焦点。<br>.change() 表单元素的值发生变化<br>.click() 鼠标单击<br>.dblclick() 鼠标双击<br>.focus() 表单元素获得焦点<br>.focusin() 子元素获得焦点<br>.focusout() 子元素失去焦点<br>.hover() 同时为mouseenter和mouseleave事件指定处理函数<br>.keydown() 按下键盘（长时间按键，只返回一个事件）<br>.keypress() 按下键盘（长时间按键，将返回多个事件）<br>.keyup() 松开键盘<br>.load() 元素加载完毕<br>.mousedown() 按下鼠标<br>.mouseenter() 鼠标进入（进入子元素不触发）<br>.mouseleave() 鼠标离开（离开子元素不触发）<br>.mousemove() 鼠标在元素内部移动<br>.mouseout() 鼠标离开（离开子元素也触发）<br>.mouseover() 鼠标进入（进入子元素也触发）<br>.mouseup() 松开鼠标<br>.ready() DOM加载完成<br>.resize() 浏览器窗口的大小发生改变<br>.scroll() 滚动条的位置发生变化<br>.select() 用户选中文本框中的内容<br>.submit() 用户递交表单<br>.toggle() 根据鼠标点击的次数，依次运行多个函数<br>.unload() 用户离开页面</p>
+<h1 id="JQuery-数组"><a href="#JQuery-数组" class="headerlink" title="JQuery 数组"></a>JQuery 数组</h1><p>$.each()  遍历<br>$.trim() 去除字符串两端的空格<br>$.inArray() 是否存在$.inArray</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">console.log($.trim(&apos;    学习jQuery   &apos;));</span><br><span class="line">   // 遍历数组</span><br><span class="line">$.each([ &apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos; ], function(idx, val) &#123;</span><br><span class="line">    console.log(&apos;element &apos; + idx + &apos;is &apos; + val);</span><br><span class="line">&#125;);</span><br><span class="line">   //遍历对象</span><br><span class="line">$.each(&#123; foo : &apos;bar&apos;, baz : &apos;bim&apos; &#125;, function(k, v) &#123;</span><br><span class="line">    console.log(k + &apos; : &apos; + v);</span><br><span class="line">&#125;);</span><br><span class="line">//返回值在数组中的索引,如果值不在数组中,则返回-1</span><br><span class="line">var myArray = [ 1, 2, 3, 5 ];</span><br><span class="line">if ($.inArray(3, myArray) !== -1) &#123;</span><br><span class="line">  console.log(&apos;found it!&apos;);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt; </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="jQuery-AJAX"><a href="#jQuery-AJAX" class="headerlink" title="jQuery AJAX"></a>jQuery AJAX</h1><p>jQuery提供了Ajax支持，可以消除痛苦的浏览器差异。它提供了一个全功能的$.ajax()方法，简单方便的方法，例如$.get()，$.getScript()，$.getJSON()，$.post()，和$().load()<br>尽管名称为”Ajax”，但大多数jQuery应用程序实际上并不使用XML; 相反，它们以纯HTML或JSON（JavaScript Object Notation）的形式传输数据<br>通常，Ajax不能跨域工作。例外是提供JSONP（带有填充的JSON）支持的服务，它允许有限的跨域功能<br>正确使用与Ajax相关的jQuery方法需要首先理解一些关键概念。</p>
+<h2 id="GET-vs-Post"><a href="#GET-vs-Post" class="headerlink" title="GET vs. Post"></a>GET vs. Post</h2><p>用于向服务器发送请求的两种最常见的“方法”是GET和POST<br>GET方法应该用于非破坏性操作 - 即，您只是从服务器“获取”数据而不是更改服务器上的数据的操作。例如，对搜索服务的查询可能是GET请求。浏览器可能会缓存GET请求，如果您不期望它，可能会导致不可预测的行为。GET请求通常在查询字符串中发送所有数据<br>POST方法应该用于破坏性操作 - 即，您在服务器上更改数据的操作。例如，保存博客帖子的用户应该是POST请求。POST请求通常不会被浏览器缓存; 查询字符串可以是URL的一部分，但数据往往作为发布数据单独发送</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>jQuery通常需要一些关于您希望从Ajax请求中获取的数据类型的指令; 在某些情况下，数据类型由方法名称指定，在其他情况下，它作为配置对象的一部分提供。有几种选择：</p>
+<ul>
+<li>text   用于运输简单的文本</li>
+<li>HTML   用于传输要放置在页面上的HTML块</li>
+<li>script 用于向页面添加新脚本</li>
+<li>JSON   用于传输JSON格式的数据，包括字符串，数组和对象</li>
+<li>JSONP  用于从另一个域传输JSON数据</li>
+<li>XML    用于在自定义XML架构中传输数据<br>在大多数情况下，我强烈支持使用JSON格式，因为它提供了最大的灵活性。它对于同时发送HTML和数据特别有用<br>Ajax的异步性让很多新的jQuery用户措手不及。由于Ajax调用默认是异步的，因此响应不会立即可用。只能使用回调来处理响应。因此，以下代码将不起作用：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var response;</span><br><span class="line">$.get(&apos;foo.php&apos;, function(r) &#123; response = r; &#125;);</span><br><span class="line">console.log(response); // undefined!</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>相反，需要将回调函数传递给请求; 当请求成功时，此回调将运行，此时可以访问它返回的数据（如果有）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.get(&apos;foo.php&apos;, function(response) &#123; console.log(response); &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>##同源策略和JSONP<br>Ajax请求仅限于与发出请求的页面相同的协议（http或https），相同的端口和相同的域,此限制不适用于通过jQuery的Ajax方法加载的脚本<br>另一个例外是针对另一个域上的JSONP服务的请求。在JSONP的情况下，服务提供者同意使用可以使用script标记加载到页面中的脚本来响应您的请求，从而避免同源限制; 该脚本将包含您请求的数据，包含在您提供的回调函数中</p>
+<h2 id="Ajax和Firebug"><a href="#Ajax和Firebug" class="headerlink" title="Ajax和Firebug"></a>Ajax和Firebug</h2><p>Firebug（或Chrome或Safari中的Webkit Inspector）是处理Ajax请求的宝贵工具,可以在Firebug的Console选项卡中（以及在Webkit Inspector的Resources&gt; XHR面板中）看到Ajax请求，并且您可以单击请求以展开它并查看详细信息，例如请求标头，响应标头，响应内容等等。如果Ajax请求没有达到预期的效果，那么这是第一个寻找错误信息的地方<br>jQuery的核心$.ajax方法是一种创建Ajax请求的强大而直接的方法,它需要一个配置对象，其中包含jQuery完成请求所需的所有指令,该$.ajax方法特别有价值，因为它提供了指定成功和失败回调的能力。它能够获取可以单独定义的配置对象，这使得编写可重用代码变得更加容易</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    //  //请求的URL</span><br><span class="line">    url : &apos;post.php&apos;,</span><br><span class="line">    // 要发送的数据</span><br><span class="line">    //将被转换为查询字符串</span><br><span class="line">    data : &#123; id : 123 &#125;,</span><br><span class="line">    // //这是POST还是GET请求</span><br><span class="line">    type : &apos;GET&apos;,</span><br><span class="line">    // 数据类型</span><br><span class="line">    dataType : &apos;json&apos;,</span><br><span class="line">    // 请求成功时运行的代码</span><br><span class="line">    // 响应传递给函数</span><br><span class="line">    success : function(json) &#123;</span><br><span class="line">        $(&apos;&lt;h1/&gt;&apos;).text(json.title).appendTo(&apos;body&apos;);</span><br><span class="line">        $(&apos;&lt;div class=&quot;content&quot;/&gt;&apos;)</span><br><span class="line">            .html(json.html).appendTo(&apos;body&apos;);</span><br><span class="line">    &#125;,</span><br><span class="line">    // 请求失败时运行的代码</span><br><span class="line">    // 原始请求和状态代码</span><br><span class="line">    // 传递给函数</span><br><span class="line">    error : function(xhr, status) &#123;</span><br><span class="line">        alert(&apos;Sorry, there was a problem!&apos;);</span><br><span class="line">    &#125;,</span><br><span class="line">    //无论成功与否，都要运行的代码</span><br><span class="line">    complete : function(xhr, status) &#123;</span><br><span class="line">        alert(&apos;The request is complete!&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意<br>关于dataType设置的说明：如果服务器发回的格式与您指定的格式不同，则代码可能会失败，原因并不总是很清楚，因为HTTP响应代码不会显示错误。处理Ajax请求时，请确保您的服务器正在发回您要求的数据类型，并验证Content-type标头对于数据类型是否准确。例如，对于JSON数据，Content-type标头应该是application/json</p>
+</blockquote>
+<h2 id="ajax-选项"><a href="#ajax-选项" class="headerlink" title="$.ajax 选项"></a>$.ajax 选项</h2><p>$ .ajax方法有很多很多选项，这以下是经常使用的几个：</p>
+<ul>
+<li>async<br>设置为false是否应同步发送请求。默认为true。请注意，如果将此选项设置为false，则在收到响应之前，您的请求将阻止执行其他代码</li>
+<li>cache<br>是否使用缓存响应（如果可用）,默认true为除“script”和“jsonp”之外的所有dataTypes。设置为false时，URL将只附加一个cachebusting参数</li>
+<li>complete<br>无论成功与否，请求完成时运行的回调函数。该函数接收原始请求对象和请求的文本状态</li>
+<li>context<br>回调函数应该运行的范围（即this回调函数内部意味着什么）,默认情况下，this回调函数内部引用最初传递给的对象$.ajax</li>
+<li>data<br>要发送到服务器的数据。这可以是对象或查询字符串，例如foo=bar&amp;baz=bim</li>
+<li>dataType<br>您希望从服务器返回的数据类型。默认情况下，如果未指定dataType，jQuery将查看响应的MIME类型</li>
+<li>error<br>如果请求导致错误，则运行回调函数。该函数接收原始请求对象和请求的文本状态</li>
+<li>jsonp<br>在发出JSONP请求时要在查询字符串中发送的回调名称。默认为“回调”</li>
+<li>success<br>如果请求成功则运行的回调函数。该函数接收响应数据（如果dataType为JSON，则转换为JavaScript对象），以及请求和原始请求对象的文本状态</li>
+<li>timeout<br>在考虑请求失败之前等待的时间（以毫秒为单位）</li>
+<li>type<br>请求的类型，“POST”或“GET”。默认为“GET”。可以使用其他请求类型，例如“PUT”和“DELETE”，但并非所有浏览器都支持</li>
+<li>url<br>请求的URL<br>该url选项是$.ajax配置对象唯一必需的属性; 所有其他属性都是可选的<br>便利方法<br>如果不需要广泛的可配置性$.ajax，并且不关心处理错误，那么jQuery提供的Ajax便利功能可能非常有用，可以简化实现Ajax请求的方法。这些方法只是核心$.ajax方法的“包装” ，只是预先设置了$.ajax方法的一些选项<h2 id="jQuery提供的便捷方法是："><a href="#jQuery提供的便捷方法是：" class="headerlink" title="jQuery提供的便捷方法是："></a>jQuery提供的便捷方法是：</h2></li>
+<li>$.get<br>对提供的URL执行GET请求</li>
+<li>$.post<br>对提供的URL执行POST请求</li>
+<li>$ .getScript<br>向页面添加脚本</li>
+<li>$ .getJSON<br>执行GET请求，并期望返回JSON<br>在每种情况下，方法按顺序采用以下参数：</li>
+<li>url<br>请求的URL</li>
+<li>data<br>要发送到服务器的数据。可选的。这可以是对象或查询字符串，例如foo=bar&amp;baz=bim<br>注意<br>此选项无效$.getScript</li>
+<li>success callback<br>如果请求成功则运行的回调函数。可选的。该函数接收响应数据（如果数据类型为JSON，则转换为JavaScript对象），以及请求和原始请求对象的文本状态</li>
+<li>data type<br>您希望从服务器返回的数据类型,可选的<br>注意<br>此选项仅适用于尚未在其名称中指定数据类型的方法<br>使用jQuery的Ajax便捷方法:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 获取text或HTML</span><br><span class="line">$.get(&apos;/users.php&apos;, &#123; userId : 1234 &#125;, function(resp) &#123;</span><br><span class="line">    console.log(resp);</span><br><span class="line">&#125;);</span><br><span class="line">//向页面添加脚本，然后运行其中定义的函数</span><br><span class="line">$.getScript(&apos;/static/js/myScript.js&apos;, function() &#123;</span><br><span class="line">    functionFromMyScript();</span><br><span class="line">&#125;);</span><br><span class="line">//从服务器获取JSON格式的数据</span><br><span class="line">$.getJSON(&apos;/details.php&apos;, function(resp) &#123;</span><br><span class="line">    $.each(resp, function(k, v) &#123;</span><br><span class="line">        console.log(k + &apos; : &apos; + v);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>该$.fn.load方法在jQuery的Ajax方法中是独一无二的，因为它在选择时被调用,该$.fn.load方法从URL获取HTML，并使用返回的HTML填充所选元素。除了为方法提供URL之外，您还可以选择提供选择器; jQuery将仅从返回的HTML中获取匹配的内容<br>$.fn.load<br>该$.fn.load方法在jQuery的Ajax方法中是独一无二的，因为它在选择时被调用,该$.fn.load方法从URL获取HTML，并使用返回的HTML填充所选元素,除了为方法提供URL之外，还可以选择提供选择器; jQuery将仅从返回的HTML中获取匹配的内容<br>使用$ .fn.load填充元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#newContent&apos;).load(&apos;/foo.html&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>使用$ .fn.load基于选择器填充元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#newContent&apos;).load(&apos;/foo.html #myDiv h1:first&apos;, function(html) &#123;</span><br><span class="line">  alert(&apos;Content updated!&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ajax和Forms"><a href="#Ajax和Forms" class="headerlink" title="Ajax和Forms"></a>Ajax和Forms</h2><p>jQuery Form Plugin允许您轻松且不引人注意地升级HTML表单以使用 AJAX。主要方法， ajaxForm并ajaxSubmit从表单元素收集信息，以确定如何管理提交过程,这两种方法都支持多种选项，使您可以完全控制数据的提交方式, 使用AJAX提交表单并不比这更容易<br>在页面中添加表单。只是一个普通的表格，不需要特殊的标记：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=&quot;myForm&quot; action=&quot;comment.php&quot; method=&quot;post&quot;&gt; </span><br><span class="line">    Name: &lt;input type=&quot;text&quot; name=&quot;name&quot; /&gt; </span><br><span class="line">    Comment: &lt;textarea name=&quot;comment&quot;&gt;&lt;/textarea&gt; </span><br><span class="line">    &lt;input type=&quot;submit&quot; value=&quot;Submit Comment&quot; /&gt; </span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>包括jQuery和Form Plugin外部脚本文件以及在DOM准备好时初始化表单的简短脚本：</p>
+<h1 id="编写jQuery插件"><a href="#编写jQuery插件" class="headerlink" title="编写jQuery插件"></a>编写jQuery插件</h1><p>编写jQuery插件的一些要求<br>1.在jQuery名称空间中仅声明一个名称<br>2.接受一个选项参数来控制插件的行为<br>3.提供对默认插件设置的公共访问权限<br>4.提供对次要功能的公共访问（如果适用）<br>5.保持私有功能私有<br>6.支持元数据插件</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    yixuan
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://geekes.github.io/2019/10/09/Jquery入门/" title="Jquery入门">https://geekes.github.io/2019/10/09/Jquery入门/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+  <div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Jquery/" rel="tag"># Jquery</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/18/使用vue-cli-axios配置跨域代理访问数据/" rel="next" title="使用vue-cli axios配置跨域代理访问数据">
+                <i class="fa fa-chevron-left"></i> 使用vue-cli axios配置跨域代理访问数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/13/TypeScript入门教程/" rel="prev" title="TypeScript入门教程">
+                TypeScript入门教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NjU3MC8yMzA4MA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="yixuan">
+            
+              <p class="site-author-name" itemprop="name">yixuan</p>
+              <p class="site-description motion-element" itemprop="description">极客教程 geekes's Blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/geekes" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhangyuxuan9694@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/okjike" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://how2j.cn/" title="how2j的java教程" target="_blank">how2j的java教程</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyandong.com/" title="绿帽子大学" target="_blank">绿帽子大学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wanandroid.com/" title="wanandroid" target="_blank">wanandroid</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+<link rel="stylesheet" href="./dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="./dist/APlayer.min.js"></script>
+<script src="./dist/music.js"></script>
+
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是jQuery？"><span class="nav-number">1.</span> <span class="nav-text">什么是jQuery？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery库包含以下功能："><span class="nav-number">2.</span> <span class="nav-text">jQuery库包含以下功能：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery语法"><span class="nav-number">3.</span> <span class="nav-text">jQuery语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法-selector-action"><span class="nav-number">3.1.</span> <span class="nav-text">基础语法:$(selector).action()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档就绪事件"><span class="nav-number">3.2.</span> <span class="nav-text">文档就绪事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果在文档没有完全加载之前就运行函数-操作可能失败"><span class="nav-number">3.3.</span> <span class="nav-text">如果在文档没有完全加载之前就运行函数,操作可能失败</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery选择器"><span class="nav-number">4.</span> <span class="nav-text">jQuery选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#元素选择器"><span class="nav-number">4.1.</span> <span class="nav-text">元素选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类选择器"><span class="nav-number">4.2.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层级选择器"><span class="nav-number">4.3.</span> <span class="nav-text">层级选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤选择器"><span class="nav-number">4.4.</span> <span class="nav-text">过滤选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可见性选择器"><span class="nav-number">4.5.</span> <span class="nav-text">可见性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器"><span class="nav-number">4.6.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奇偶选择器"><span class="nav-number">4.7.</span> <span class="nav-text">奇偶选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单对象"><span class="nav-number">4.8.</span> <span class="nav-text">表单对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单对象属性"><span class="nav-number">4.9.</span> <span class="nav-text">表单对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当前元素"><span class="nav-number">4.10.</span> <span class="nav-text">当前元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery选择器总结"><span class="nav-number">4.11.</span> <span class="nav-text">jQuery选择器总结:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JQuery效果"><span class="nav-number">5.</span> <span class="nav-text">JQuery效果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-hide-和show"><span class="nav-number">5.1.</span> <span class="nav-text">jQuery hide()和show()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-Fading-方法"><span class="nav-number">5.2.</span> <span class="nav-text">jQuery Fading 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-fadeIn-方法"><span class="nav-number">5.3.</span> <span class="nav-text">jQuery fadeIn() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-fadeOut-方法"><span class="nav-number">5.4.</span> <span class="nav-text">jQuery fadeOut() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-fadeToggle-方法"><span class="nav-number">5.5.</span> <span class="nav-text">jQuery fadeToggle() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-fadeTo-方法"><span class="nav-number">5.6.</span> <span class="nav-text">jQuery fadeTo() 方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-滑动方法"><span class="nav-number">6.</span> <span class="nav-text">jQuery 滑动方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-slideDown-方法"><span class="nav-number">6.1.</span> <span class="nav-text">jQuery slideDown() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-slideUp-方法"><span class="nav-number">6.2.</span> <span class="nav-text">jQuery slideUp() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-slideToggle-方法"><span class="nav-number">6.3.</span> <span class="nav-text">jQuery slideToggle() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-动画-animate-方法"><span class="nav-number">6.4.</span> <span class="nav-text">jQuery 动画 - animate() 方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-stop-方法"><span class="nav-number">6.5.</span> <span class="nav-text">jQuery stop() 方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-筛选器"><span class="nav-number">7.</span> <span class="nav-text">jQuery 筛选器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤选择器-1"><span class="nav-number">7.1.</span> <span class="nav-text">过滤选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM树遍历"><span class="nav-number">7.2.</span> <span class="nav-text">DOM树遍历</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-常用方法"><span class="nav-number">8.</span> <span class="nav-text">jQuery 常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#取值"><span class="nav-number">8.1.</span> <span class="nav-text">取值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置"><span class="nav-number">8.2.</span> <span class="nav-text">设置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-属性"><span class="nav-number">9.</span> <span class="nav-text">jQuery 属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-事件"><span class="nav-number">10.</span> <span class="nav-text">jQuery 事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JQuery-数组"><span class="nav-number">11.</span> <span class="nav-text">JQuery 数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery-AJAX"><span class="nav-number">12.</span> <span class="nav-text">jQuery AJAX</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-vs-Post"><span class="nav-number">12.1.</span> <span class="nav-text">GET vs. Post</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">12.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax和Firebug"><span class="nav-number">12.3.</span> <span class="nav-text">Ajax和Firebug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax-选项"><span class="nav-number">12.4.</span> <span class="nav-text">$.ajax 选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery提供的便捷方法是："><span class="nav-number">12.5.</span> <span class="nav-text">jQuery提供的便捷方法是：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax和Forms"><span class="nav-number">12.6.</span> <span class="nav-text">Ajax和Forms</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写jQuery插件"><span class="nav-number">13.</span> <span class="nav-text">编写jQuery插件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="aplayer" data-id="484056997" data-server="netease" data-type="song" data-autoplay="true"></div>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+
+ <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <span class="author" itemprop="copyrightHolder">yixuan</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">全站字数:</span>
+    
+    <span title="Site words total count">74.7k</span>
+  
+</div>
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("09/01/2019 12:49:00"); 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
